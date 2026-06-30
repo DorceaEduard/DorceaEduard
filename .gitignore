@@ -1,0 +1,15 @@
+# Ars Contexta Vault
+_bmad/
+_bmad-output/
+.opencode/
+.agents/
+opencode.json
+node_modules/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# PowerShell hooks
+*.ps1

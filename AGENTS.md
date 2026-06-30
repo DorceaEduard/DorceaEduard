@@ -1,73 +1,71 @@
-# AGENTS.md — C:\ProiectEdi
+# AGENTS.md — SecondBrain (Ars Contexta)
 
-Acest proiect conține un vault Ars Contexta — un sistem de cunoștințe pentru cursuri academice.
+**Proiect practica S4 2026** — SecondBrain local pentru Automatică și Informatică Aplicată Anul III.
+Sistem de cunoștințe care ingerează PDF-uri de curs și răspunde la întrebări cu citare sursă.
 
-## Structură Vault
+## Philosophy
 
+**If it won't exist next session, write it down now.**
+
+Conceptele sunt memoria ta externă. Wiki-linkurile sunt conexiunile. Hărțile-materie sunt managerii de atenție. Fără acest sistem, fiecare sesiune începe de la zero.
+
+## Discovery-First Design
+
+Înainte de a scrie în `concepts/`, verifică:
+1. **Titlu ca propoziție** — Se citește natural: `since [[titlu]]`?
+2. **Descriere utilă** — Adaugă informații dincolo de titlu?
+3. **Materii** — E linkuit de la cel puțin o [[hartă-materie]]?
+4. **Compozabilitate** — Poate fi linkuit din alte concepte fără context irelevant?
+
+## Schema unei notițe
+
+```yaml
+descriere: "ce afirmă conceptul"
+materii: ["[[nume-materie]]"]
+type: definition | theorem | formula | algorithm | example
+source: "nume_PDF.pdf"
+confidence: established | supported | speculative
 ```
-C:\ProiectEdi/
-├── cursuri/          # Notițe — un fișier per concept, extras din PDF-uri
-│   └── index.md      # Hub MOC principal
-├── inbox/            # PDF-uri de procesat
-├── templates/        # Template-uri pentru notițe
-└── ops/
-    ├── derivation.md       # Configurația sistemului
-    ├── config.yaml         # Configurare mașină
-    ├── goals.md            # Ce e de făcut (actualizează la final)
-    ├── methodology/        # Cum funcționează sistemul
-    ├── reminders.md        # Acțiuni time-bound
-    ├── sessions/           # Jurnal sesiuni
-    ├── observations/       # Învățăminte operaționale
-    ├── tensions/           # Probleme semnalate
-    └── queue/              # Coadă de procesare
-```
 
-## Skill-uri Ars Contexta disponibile
+## Session Rhythm
 
-Folosește-le cu trigger-uri naturale:
+**Orient** → citește `self/goals.md`, `ops/reminders.md`, verifică starea vault-ului
+**Work** → procesează PDF-uri, extrage concepte, conectează materii
+**Persist** → commit, actualizează goal-uri, capturează observații
 
-| Comandă | Skill | Acțiune |
-|---|---|---|
-| "extrage din [PDF]" | arscontexta-reduce | Citește PDF-ul din inbox/ și creează notițe atomice în cursuri/ |
-| "conectează notițele noi" | arscontexta-reflect | Găsește conexiuni între concepte, actualizează MOC-uri |
-| "reactualizează notițe vechi" | arscontexta-reweave | Actualizează notițe mai vechi cu link-uri noi |
-| "verifică vault-ul" | arscontexta-verify | Validare descrieri, schemă, link-uri |
-| "diagnostic" | arscontexta-health | Verificare completă sănătate vault |
-| "salvează învățarea asta" | arscontexta-remember | Captură insight-uri în ops/observations/ |
-| "ce ar trebui să fac?" | arscontexta-next | Recomandă următoarea acțiune |
-| "ajutor" | arscontexta-help | Listă skill-uri și explicații |
-| "rethink this" | arscontexta-rethink | Provocare adversarială a ideilor |
-| "arată statistici" | arscontexta-stats | Metrici vault |
+## Where Things Go
 
-## Ritm Sesiune
+| Content | Destinație |
+|---------|-----------|
+| Concepte din curs | concepts/ |
+| PDF-uri de procesat | inbox/ |
+| Obiective proiect | self/goals.md |
+| Task-uri urgente | ops/reminders.md |
 
-**ORIENT → WORK → PERSIST**
+## Available Commands
 
-**ORIENT (start):**
-1. Citește ops/goals.md (ce e de lucru)
-2. Verifică ops/reminders.md (acțiuni urgente)
-3. Verifică coada ops/queue/ (ce așteaptă procesare)
+- **/arscontexta:help** — Comenzi disponibile
+- **/arscontexta:health [quick|full]** — Diagnostic vault
+- **/arscontexta:ask [întrebare]** — Interoghează baza de cunoștințe metodologică
+- **/arscontexta:extrage [sursă]** — Extrage concepte dintr-un PDF din inbox/
+- **/arscontexta:conectează** — Găsește conexiuni între concepte
+- **/arscontexta:verifică [concept]** — Verifică calitatea unei notițe
+- **/arscontexta:next** — Ce să faci mai departe
+- **/arscontexta:remember** — Capturează un obstacol/observație
+- **/arscontexta:stats** — Statistici vault
 
-**WORK:**
-- O sarcină pe sesiune
-- Descoperirile le capturezi în inbox, nu le urmărești acum
+## Condition-Based Maintenance
 
-**PERSIST (obligatoriu):**
-1. Actualizează ops/goals.md
-2. Salvează observații în ops/observations/ dacă e cazul
-3. Rulează verify pe notițe noi
+| Condiție | Prag | Acțiune |
+|----------|------|---------|
+| Concepte orfane >7 zile | Any | Rulează /conectează |
+| Inbox items | >= 3 | Rulează /extrage |
+| Observații nerezolvate | >= 5 | Rulează /rethink |
 
-## Convecții Notițe
+## Pipeline Compliance
 
-- Titlu = frază care exprimă conceptul (propoziție, nu etichetă)
-- YAML frontmatter: description, source, course, type
-- Wiki-links [[alt concept]] pentru conexiuni
-- Topics footer cu link la MOC-ul cursului
-- Description ~150 caractere, diferit de titlu
+PDF-urile intră în `inbox/`, trec prin `/extrage` → concepte în `concepts/`, apoi se arhivează în `archive/`.
 
-## Reguli
+## Metodologie
 
-- Nu șterge niciodată — arhivează sau marchează outdated
-- Descoperirile în timpul lucrului → inbox, nu deraia sarcina curentă
-- Propune schimbări de metodologie, nu le implementa unilateral
-- Tot ce nu va exista sesiunea viitoare, scrie acum
+Vezi `.opencode/arscontexta/methodology/` (249 research claims) și `.opencode/arscontexta/reference/`.
