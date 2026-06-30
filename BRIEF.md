@@ -9,9 +9,16 @@ updated: 2026-06-30
 
 # SecondBrain — Brief actualizat
 
-> ⚠️ **CALENDAR NOU (decis 30.06 cu Mihaela):** practica se închide pentru TOATE grupele pe **10 iulie**. Mai aveți **3 ședințe**: **mar 03.07**, **mar 07.07**, **vin 10.07** (ultima = demo + CV).
+> ⚠️ **CALENDAR NOU (decis 30.06 cu Mihaela):** practica se închide pentru TOATE grupele pe **10 iulie**. Mai aveți **3 ședințe**, dar DOAR **2 de build**:
+> - **azi 30.06** (build) · **vin 03.07** 15-17 (build) — cele 2 ședințe de cod
+> - **mar 07.07** = CV + aliniere prezentare finală (NU cod nou)
+> - **vin 10.07** = prezentare + demo
+>
+> Tot MVP-ul de mai jos trebuie LIVE local până la finalul lui **03.07**.
 
-> 🔄 **REORIENTARE (30.06):** brief-ul vostru inițial descria un **SaaS RAG web** complet (auth multi-user, vault shared al comunității, transcriere video/audio cu Whisper, deploy pe 4 platforme). Asta e imposibil în 3 ședințe și reinventează lucruri care există deja. **Direcția nouă, confirmată de tutore:** un **agent OS „second brain" LOCAL**, construit pe **ARS Contexta + Obsidian**. Nu mai construiți motorul RAG de la zero. Stați pe ARS Contexta (care are deja pipeline-ul + căutarea semantică locală `qmd`) și construiți DEASUPRA lui agentul vostru pe domeniul cursului.
+> 🔄 **REORIENTARE (30.06):** brief-ul vostru inițial descria un **SaaS RAG web** complet (auth multi-user, vault shared, transcriere video/audio Whisper, deploy 4 platforme). Imposibil în 2 ședințe și reinventează lucruri care există deja. **Direcția confirmată de tutore:** un **second brain LOCAL** pe **ARS Contexta + Obsidian**. Nu construiți motorul RAG de la zero — stați pe ARS Contexta (are deja pipeline-ul + căutarea semantică locală `qmd`) și ingerați materialele cursului.
+
+> 🎯 **MVP vs VISION — citește asta înainte de orice:** ținta celor 2 ședințe = **„upload PDF curs → întrebare → răspuns ancorat cu citare sursă", local.** Atât. În call s-a vorbit și despre un **„agent OS"** mai mare (interfață locală cu butoane, text-to-speech ElevenLabs, subagenți pe zone). **Acela = VISION / v2, NU MVP.** Cu 2 ședințe de build, dacă plecați după interfața OS rămâneți fără query-ul ancorat funcțional pe 10.07. Întâi bazele (motorul + ingest + citare), OS-ul îl construiți VOI după practică. Tutorele vă dă bazele; restul e al vostru.
 
 ## 1. Problema (neschimbat)
 Un student de Automatică primește sute de pagini PDF, prezentări, notițe disparate. Volumul e copleșitor; răspunsurile de pe ChatGPT/YouTube nu sunt ancorate în ce a predat efectiv profesorul.
@@ -37,13 +44,13 @@ Local-first: totul rulează pe mașina voastră. **Niciun deploy web, niciun aut
 
 | Prioritate | Component | Țintă |
 |---|---|---|
-| **MUST (S4 azi → S5)** | Setup ARS Contexta + Obsidian, vault funcțional, structură pe domeniul cursului | trebuie |
-| **MUST** | Ingest: un curs real (PDF-uri) → markdown → procesat în note `qmd`-interogabile | trebuie |
-| **MUST (S5 → S6)** | Agent Q&A (opencode + NVIDIA NIM) care caută în `qmd` și răspunde **cu citare sursă** | trebuie |
-| **MUST (S6 07.07)** | Eval harness: 3-5 întrebări „gold" + min. 2 adversariale (răspuns corect = „nu am în surse") | trebuie |
-| **STRETCH** | Transcriere video/audio curs (Whisper local) → adăugat în vault | dacă mai e timp |
-| **STRETCH** | Skill custom: flashcards / rezumat per notă | bonus |
-| **CUT (v2)** | SaaS web, auth multi-user, vault shared comunitate + moderare, admin dashboard, deploy cloud, mobile | scos din MVP |
+| **MUST (azi)** | Setup ARS Contexta + Obsidian, vault funcțional, structură pe domeniul cursului; repo curat | trebuie |
+| **MUST (azi → 03.07)** | Ingest: un curs real (PDF-uri) → markdown → procesat în note `qmd`-interogabile | trebuie |
+| **MUST (03.07)** | Agent Q&A (opencode + NVIDIA NIM) care caută în `qmd` și răspunde **cu citare sursă** | trebuie |
+| **MUST (03.07)** | Eval: 3-5 întrebări „gold" + min. 2 adversariale (răspuns corect = „nu am în surse") | trebuie |
+| **VISION / v2** | „Agent OS": interfață locală cu butoane, text-to-speech (ElevenLabs), subagenți pe zone | NU în MVP |
+| **VISION / v2** | Transcriere video/audio curs (Whisper local), flashcards, recuperare agentică | NU în MVP |
+| **CUT** | SaaS web, auth multi-user, vault shared comunitate + moderare, admin, deploy cloud, mobile | scos |
 
 ## 5. Tooling
 ARS Contexta (pipeline + `qmd` local) · Obsidian · opencode (agent în terminal) + NVIDIA NIM (LLM-ul agentului) · Whisper local DOAR la stretch. **Fără Supabase/pgvector/Render în MVP** — `qmd` acoperă RAG-ul local.
