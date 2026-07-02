@@ -1,0 +1,152 @@
+﻿Tehnologii WEB
+Curs 7
+JavaScript
+: 6gyjd1x
+Cod Teams
+Anul III, semestrul II
+2026
+JavaSript - continuare
+JavaScript este un limbaj de programare interpretat, dinamic, orientat pe obiecte, folosit ├«n principal ├«n
+browser pentru a controla comportamentul paginilor web.
+Caracteristici fundamentale
+Limbaj single-threaded ΓåÆ ruleaz─â pe un singur fir de execu╚¢ie.
+Event-driven ΓåÆ reac╚¢ioneaz─â la evenimente (click, tastare, ├«nc─ârcare).
+Non-blocking ΓåÆ folose╚Öte asincronism pentru a evita blocarea execu╚¢iei.
+Tipare dinamice ΓåÆ variabilele ├«╚Öi pot schimba tipul ├«n timpul rul─ârii.
+Prototype-based ΓåÆ obiectele mo╚Ötenesc prin prototip, nu prin clase tradi╚¢ionale.
+Rol ├«n ecosistemul Web:
+HTML ΓåÆ structur─â
+CSS ΓåÆ stil
+JavaScript ΓåÆ logic─â, interactivitate, dinamism
+DOM: Document Object Model
+DOM este o reprezentare intern─â a paginii web sub forma unui arbore de noduri. Browserul transform─â
+codul HTML ├«ntr-o structur─â de obiecte accesibile prin JavaScript.
+Tipuri de noduri:
+ΓÇó Element nodes (ex: <div>)
+ΓÇó Text nodes (con╚¢inutul dintre tag-uri)
+ΓÇó Attribute nodes (atribute HTML)
+ΓÇó Document node (r─âd─âcina arborelui)
+De ce este important?
+ΓÇó Permite manipularea dinamic─â a paginii.
+ΓÇó Este baza interactivit─â╚¢ii ├«n web.
+ΓÇóHTMLCollection = live (se actualizeaz─â automat)
+ΓÇóNodeList = static
+Selectarea elementelor
+Metode moderne:
+ΓÇó document.querySelector() ΓåÆ
+selecteaz─â primul element care corespunde unui selector CSS.
+ΓÇó document.querySelectorAll() ΓåÆ selecteaz─â toate elementele.
+Metode clasice:
+ΓÇó getElementById()
+ΓÇó getElementsByClassName()
+ΓÇó getElementsByTagName()
+Rezultat:
+titlu ΓåÆ obiect DOM pentru elementul cu id-ul ΓÇ₧titluΓÇ¥
+ΓÇó
+butoane ΓåÆ list─â static─â de elemente
+ΓÇó
+HTMLCollection = live (se actualizeaz─â automat)
+ΓÇó
+NodeList = static
+ΓÇó
+Evenimente ├«n JavaScript
+Ce este un eveniment?
+O ac╚¢iune detectat─â de browser:
+ΓÇó click
+ΓÇó mouseover
+ΓÇó keydown
+ΓÇó submit
+ΓÇó load
+Cum func╚¢ioneaz─â?
+JavaScript folose╚Öte un Event Loop
+care ascult─â evenimente ╚Öi execut─â func╚¢iile asociate.
+
+Propagarea evenimentelor
+Dou─â faze:
+ΓÇó Capturing phase (de sus ├«n jos)
+ΓÇó Bubbling phase (de jos ├«n sus)
+Implica╚¢ii:
+ΓÇó Evenimentele pot fi interceptate la diferite niveluri ale DOM-ului.
+ΓÇó event.stopPropagation() opre╚Öte propagarea.
+Exemplu:
+div.addEventListener("click", () => console.log("DIV"));
+btn.addEventListener("click", () => console.log("BUTTON"));
+Rezultat:
+Click pe buton ΓåÆ se execut─â ├«nt├ói handler-ul butonului, apoi al div-ului (bubbling).
+
+Asincronism ├«n JavaScript
+De ce este necesar?
+JavaScript ruleaz─â pe un singur fir ΓåÆ opera╚¢iile lente (re╚¢ea, timp de a╚Öteptare) ar bloca pagina.
+Mecanisme:
+ΓÇó Callback-uri (model vechi)
+ΓÇó Promises (model modern)
+ΓÇó Async/Await (sintax─â simplificat─â pentru Promises)
+Event Loop:
+ΓÇó Gestioneaz─â execu╚¢ia codului
+ΓÇó Mut─â func╚¢iile ├«n coada de execu╚¢ie c├ónd sunt gata
+
+Promises
+Ce este o Promise?
+Un obiect care reprezint─â o valoare ce va fi disponibil─â ├«n viitor.
+St─âri:
+ΓÇó pending
+ΓÇó fulfilled
+ΓÇó rejected
+Exemplu:
+const p = new Promise(resolve => {
+setTimeout(() => resolve("Terminat!"), 1000);
+});
+p.then(r => console.log(r));
+Rezultat:
+Terminat! (dup─â 1 sec)
+
+Fetch API
+Ce este Fetch?
+O interfa╚¢─â modern─â pentru cereri HTTP.
+Avantaje:
+ΓÇó Promises
+ΓÇó Sintax─â simpl─â
+ΓÇó Suport pentru JSON
+Exemplu:
+fetch("https://jsonplaceholder.typicode.com/users/1")
+.then(r => r.json())
+.then(data => console.log(data));
+Rezultat:
+Obiect JSON cu datele utilizatorului.
+
+Manipularea formularelor
+De ce e important─â validarea?
+ΓÇó Previne erorile
+ΓÇó ├Ämbun─ât─â╚¢e╚Öte experien╚¢a utilizatorului
+ΓÇó Protejeaz─â aplica╚¢ia
+Exemplu:
+form.addEventListener("submit", e => {
+e.preventDefault();
+if (input.value.length < 3) {
+alert("Minim 3 caractere!");
+}
+});
+
+
+Aplica╚¢ii propuse spre rezolvare:
+1. Creeaz─â o pagin─â cu: un titlu, un paragraf, un buton. La ap─âsarea butonului, textul paragrafului trebuie s─â se schimbe ├«n:
+ΓÇ₧Text actualizat din JavaScript!ΓÇ¥.
+Indica╚¢ie: Folose╚Öte - getElementById, textContent, addEventListener("click")
+2. Creeaz─â un p─âtrat (div) de 150x150 px. Adaug─â un buton care schimb─â culoarea p─âtratului ├«ntre ro╚Öu ╚Öi albastru.
+Indica╚¢ie: Folose╚Öte- element.style.backgroundColor, operatorul ternar.
+3. Creeaz─â un input text ╚Öi un paragraf. Pe m─âsur─â ce utilizatorul tasteaz─â, paragraful trebuie s─â afi╚Öeze textul introdus ├«n timp
+real.
+Indica╚¢ie: Folose╚Öte - input.addEventListener("input", ...), input.value.
+4. Creeaz─â un formular cu c├ómpurile: Nume, disciplin─â, not─â, observa╚¢ii. Dac─â are mai pu╚¢in de 3 caractere ΓåÆ afi╚Öeaz─â mesaj
+de eroare, dac─â observa╚¢ia are mai pu╚¢in de 5 caractere ΓåÆ afi╚Öeaz─â mesaj de avertizare, altfel ΓåÆ afi╚Öeaz─â ΓÇ₧Formular trimis!ΓÇ¥
+Indica╚¢ie: Folose╚Öte- event.preventDefault(), alert().
+5. Ai un array de numere: [1, 5, 8, 12, 3, 7], Afi╚Öeaz─â ├«ntr-un paragraf: doar numerele pare, dublul fiec─ârui num─âr , suma
+tuturor numerelor.
+Indica╚¢ie: Folose╚Öte - filter(), map(), reduce()
+6. Creeaz─â un obiect student cu: nume, v├órst─â, metod─â salut() care returneaz─â: ΓÇ₧Salut, sunt <nume> ╚Öi am <v├órst─â> ani.ΓÇ¥
+Afi╚Öeaz─â rezultatul metodei ├«ntr-un paragraf.
+7. Creeaz─â un buton ΓÇ₧├Äncarc─â dateΓÇ¥. La click: afi╚Öeaz─â ΓÇ₧Se ├«ncarc─â...ΓÇ¥ , dup─â 6 secunde, afi╚Öeaz─â ΓÇ₧Date ├«nc─ârcate cu
+succes!ΓÇ¥ (Promises)
+8. Creeaz─â un counter cu 3 butoane: + cre╚Öte num─ârul, - scade num─ârul, Reset ├«l reseteaz─â la 0. Afi╚Öeaz─â num─ârul ├«ntr-un
+element mare, centrat.
+

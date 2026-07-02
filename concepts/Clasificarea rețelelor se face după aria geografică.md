@@ -17,3 +17,5 @@ created: 2026-06-30
 | CAN | Campus Area Network — cuprinde mai multe LAN-uri |
 | MAN | Metropolitan Area Network |
 | WAN | Wide Area Network |
+
+Topics: [[Retelistică]]

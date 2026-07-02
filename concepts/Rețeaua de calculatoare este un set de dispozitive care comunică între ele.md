@@ -10,3 +10,5 @@ created: 2026-06-30
 # Rețeaua de calculatoare este un set de dispozitive care comunică între ele
 
 O rețea de calculatoare cuprinde: dispozitive de rețea, medii de comunicații, protocoale de comunicații. Topologia poate fi fizică sau logică.
+
+Topics: [[Retelistică]]

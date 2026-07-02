@@ -1,0 +1,1496 @@
+﻿Tehnologii WEB
+Curs 4
+CSS
+Cod Teams: 6gyjd1x
+Anul III, semestrul II
+2026
+CSS
+CSS vine de la Cascading Style Sheets ╚Öi este limbajul care se ocup─â de aspectul vizual al unei pagini web.
+Dac─â HTML este scheletul (structura paginii), CSS este hainele ╚Öi designul: culori, fonturi, spa╚¢ieri,
+pozi╚¢ionare, anima╚¢ii etc.
+Ce face concret CSS?
+Cu CSS po╚¢i controla:
+culorile textului ╚Öi ale fundalului
+fonturile ╚Öi dimensiunile textului
+spa╚¢ierea (margin, padding)
+pozi╚¢ionarea elementelor
+adaptarea la mobil (design responsive)
+anima╚¢ii ╚Öi efecte vizuale
+De ce se nume╚Öte ΓÇ₧CascadingΓÇ¥?
+ΓÇ₧CascadingΓÇ¥ ├«nseamn─â c─â stilurile se aplic─â ├«n cascad─â ΓÇö adic─â exist─â o ordine ╚Öi priorit─â╚¢i. Dac─â dou─â reguli
+afecteaz─â acela╚Öi element, exist─â reguli clare despre care c├ó╚Ötig─â (specificitate, ordine, !important, etc.).
+Unde se scrie CSS?
+ΓÇó ├Äntr-un fi╚Öier separat .css (varianta recomandat─â)
+ΓÇó ├Än interiorul fi╚Öierului HTML (├«n <style>)
+ΓÇó Direct pe element (inline)
+Sintaxa construc╚¢iei CSS
+O construc╚¢ie CSS are dou─â p─âr╚¢i: un selector, ╚Öi una sau mai multe declara╚¢ii:
+unde:
+ΓÇó selector - aceast─â component─â, identific─â elementul HTML,
+c─âreia i se aplic─â stilul dat;
+ΓÇó acoladele - delimiteaz─â, care propriet─â╚¢i ╚Öi cu ce valori se aplic─â
+elementului HTML;
+ΓÇó propriet─â╚¢i - sunt elementele de aspect care vrem s─â le
+modific─âm;
+ΓÇó valori ale propriet─â╚¢ilor - sunt noile valori pe care
+vrem s─â le atribuim propriet─â╚¢ii respective.
+O foaie de stil poate fi inserat─â ├«n trei moduri:
+1. Extern
+O foaie de stil extern─â este ideal─â atunci c├ónd stilul respectiv se aplic─â mai multor pagini. Cu o foaie CSS extern─â,
+pute╚¢i modifica aspectul ├«ntregului site modific├ónd un singur fi╚Öier.
+Fiecare pagin─â trebuie s─â se lege la foaia de stil folosind tagul <link> ├«n interiorul sec╚¢iunii head:
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+...
+</body>
+</html>
+unde:
+- atributul rel specific─â rela╚¢ia dintre documentul apelant ╚Öi documentul legat.
+Are numeroase valori posibile, dar ├«n cazul de fa╚¢─â valoarea sa trebuie s─â fie stylesheet;
+- atributul type specific─â tipul documentului legat, adic─â define╚Öte ce fel de resurs─â
+este (extensia fi╚Öierului nu este suficient─â pentru a determina aceast─â) - ├«n cazul
+nostru trebuie s─â aib─â valoarea text/css;
+- atributul href cum am v─âzut ╚Öi la elementul link, specific─â adresa (URL)
+de unde se introduce fi╚Öierul foaie de stil.
+<html>
+<head>
+<style type="text/css" media="all"> @import url(style.css);
+</style>
+</head>
+<body>
+...
+</body>
+</html>
+O foaie extern─â de stil poate fi scris─â ├«n Notepad++, nu trebuie s─â con╚¢in─â taguri html ╚Öi trebuie salvat─â cu extensia
+.css. Un exemplu de foaie de stil extern─â, memorat─â ├«n fi╚Öierul style.css, este prezentat─â mai jos:
+hr {color:sienna;}
+p {margin-left:20px;}
+body {background-image:url("roses.gif");}
+2. Intern
+O foaie intern─â de stil trebuie folosit─â c├ónd un singur document are un anumit stil. Foaia intern─â de stil se define╚Öte ├«n
+sec╚¢iunea head a paginii HTML folosind tagul <style>, ca ├«n exemplul urm─âtor:
+<head>
+<style type="text/css"> hr {color:#424242;}
+p {margin-left:20px;}
+body {background-image:url("roses.gif");}
+</style>
+</head>
+3. Inline
+Un stil inline pierde multe din avantajele foilor de stiluri amestec├ónd con╚¢inutul cu prezentarea. Utiliza╚¢i aceast─â metod─â c├ót
+mai rar. Pentru a utiliza un stil inline, folosi╚¢i atributul style ├«n tagul respectiv. Atributul style poate con╚¢ine orice propriet─â╚¢i
+CSS. Exemplul urm─âtor ilustreaz─â cum se poate schimba culoarea ╚Öi marginea st├óng─â a unui paragraf:
+<p style="color:#424242; margin-left:20px">Acesta este un paragraf.</p>
+Dac─â anumite propriet─â╚¢i ale unui selector au fost setate ├«n foi de stiluri diferite, valorile vor fi mo╚Ötenite din cea
+mai specific─â foaie de stil. Spre exemplu,├«ntr-o foaie de stil extern─â, selectorul h3 are setate urm─âtoarele trei propriet─â╚¢i:
+h3 { color:red;
+text-align:left; font-size:8pt;
+}
+╚ÿi foaia de stil intern seteaz─â pentru h3 urm─âtoarele propriet─â╚¢i:
+h3 {
+text-align:right; font-size:20pt;
+}
+Dac─â pagina care con╚¢ine aceast─â foaie intern─â de stil se leag─â ╚Öi la foaia de stil extern─â, atunci propriet─â╚¢ile pentru h3 vor fi:
+color:red;
+text-align:right;
+font-size:20pt;
+Culoarea este mo╚Ötenit─â din foaia extern─â, iar alinierea ╚Öi dimensiunea fontului sunt ├«nlocuite cu valorile din foaia
+intern─â de stil.
+Stilurile pot fi specificate:
+- ├«ntr-un element HTML;
+- ├«n sec╚¢iunea head a unei pagini HTML;
+- ├«ntr-un fi╚Öier extern CSS.
+Observa╚¢ie: ├Äntr-un document HTML pot fi referite mai multe foi de stiluri externe.
+Ordinea de aplicare
+Ce stil va fi utilizat c├ónd ├«ntr-un document HTML sunt specificate mai multe foi de stil pentru un element HTML? La
+modul general, putem spune c─â stilurile se vor mixa ├«ntr-o foaie de stil virtual─â dup─â urm─âtoarele reguli, unde
+prioritatea cre╚Öte odat─â cu num─ârul de ordine:
+- set─ârile implicite ale browserului;
+- foi de stiluri externe (din fi╚Öiere CSS);
+- foi de stiluri interne (din sec╚¢iunea head);
+- stiluri inline (din tagul elementului HTML).
+Deci, stilul inline al unui element suprascrie stilul definit ├«n <head>, ├«ntr-un fi╚Öier extern sau ├«n browser.
+Observa╚¢ie: Dac─â leg─âtura c─âtre o foaie extern─â de stil este amplasat─â ├«n sec╚¢iunea <head> dup─â foaia intern─â de
+stiluri, atunci fi╚Öierul extern va suprascrie stilul intern!
+Selectoarele (Cum alegi ce stilizezi)
+Selectoarele spun c─ârui element HTML ├«i aplici stilul.
+∩éº Selector de tip (tag): p { color: red; }
+Aplic─â stilul tuturor paragrafelor <p>.
+∩éº Selector de clas─â: .buton { background-color: blue;}
+Se aplic─â elementelor care au: <button class="buton">Click</button>
+Clasa poate fi folosit─â de mai multe elemente.
+∩éº Selector de ID: #header { background-color: gray;}
+Se aplic─â elementului: <div id="header"></div>
+ID-ul ar trebui s─â fie unic ├«n pagin─â.
+Propriet─â╚¢i ╚Öi Valori
+O regul─â CSS are forma: selector { proprietate: valoare;}
+Exemplu: p { color: blue; font-size: 18px;}
+color = proprietate; blue = valoare; font-size = proprietate; 18px = valoare
+Modelul Box
+Orice element HTML este o ΓÇ₧cutieΓÇ¥.
+Cutia are 4 zone:
+Content ΓÇô con╚¢inutul (text, imagine)
+Padding ΓÇô spa╚¢iul dintre con╚¢inut ╚Öi margine
+Border ΓÇô marginea vizibil─â
+Margin ΓÇô spa╚¢iul exterior fa╚¢─â de alte elemente
+Exemplu:
+div { padding: 20px; border: 2px solid black; margin: 10px;}
+Culori ├«n CSS
+Po╚¢i scrie culorile ├«n mai multe moduri:
+color: red;
+color: #ff0000; #ff0000 = hex
+color: rgb(255, 0, 0); rgb = ro╚Öu, verde, albastru
+color: rgba(255, 0, 0, 0.5); rgba = include transparen╚¢─â
+Unit─â╚¢i de m─âsur─â
+Unit─â╚¢i fixe: px ΓÇô pixeli
+Unit─â╚¢i relative: %, em, rem, vh (viewport height), vw (viewport width)
+Exemplu: width: 50%;height: 100vh;
+Unit─â╚¢ile relative sunt esen╚¢iale pentru design responsive.
+EXEMPLUL 1
+1
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 p {
+6 color:red;
+7 text-align:center;
+}
+8
+</style>
+9
+</head>
+10
+11 <body>
+<p>Buna ziua!</p>
+12
+<p>Acest paragraf este stilizat cu CSS.</p>
+13
+</body>
+14
+</html>
+15
+Comentarii CSS
+Comentariile se folosesc pentru a explica codul ╚Öi pot fi utile c├ónd modifica╚¢i codul surs─â pe parcurs. Comentariile sunt
+ignorate de c─âtre browsere. Un comentariu CSS ├«ncepe cu "/*", ╚Öi se termin─â cu "*/", ca ├«n exemplul urm─âtor:
+/*Acesta este un comentariu ╚Öi nu se va afi╚Öa */
+p {
+text-align:center;
+/*Acesta este un alt comentariu*/
+color:blue;
+font-family:arial;
+}
+Exemplul 2
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 h5 {
+6 color:blue;
+7 }
+8 </style>
+9 </head>
+10 <body>
+11 <h4>Titlu de marimea 4</h4>
+<h5>Titlu de marimea 5</h5>
+12
+13 <h6>Titlu de marimea 6</h6>
+<h5>Alt titlu de marimea 5</h5>
+14
+</body>
+15
+</html>
+16
+Toate elementele h5 din pagina vor avea culoarea albastra.
+Exemplul 3: Stilul urm─âtor va fi aplicat elementului care are atributul id="par1".
+1
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 #par1 {
+6 text-align:center;
+color:red;
+7
+}
+8
+</style>
+9
+</head>
+10
+<body>
+11
+<p id="par1">Buna ziua!</p>
+12
+<p>Acest paragraf nu este afectat de declaratia de stil.</p>
+13
+</body>
+14
+15 </html>
+Selectorul id este utilizat pentru a specifica stilul unui singur element .
+Selectorul id folose╚Öte atributul id al unui element HTML, ╚Öi este definit cu "#".
+Exemplul 4
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+.center {
+5
+text-align:center;
+6
+}
+7
+</style>
+8
+</head>
+9
+<body>
+10
+<h1 class="center">Acest titlu este aliniat la centru cu CSS</h1>
+11
+<p class="center">Acest paragraf este de asemenea aliniat la centru cu
+12
+CSS.</p>
+13
+</body>
+14
+</html>
+Selectorul Class este utilizat pentru a specifica stilul unui grup de elemente. Astfel, pute╚¢i seta un stil particular
+pentru toate elementele HTML care face parte din aceea╚Öi clas─â. Selectorul class folose╚Öte atributul HTML class ╚Öi
+este definit cu ".". ├Än exemplul urm─âtor, toate elementele HTML cu atributul class="center" vor fi aliniate la centru:
+Exemplul 5: Doar elementele p din clasa center vor fi aliniate la centru:
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+p.center {
+5
+text-align:center;
+6
+}
+7
+</style>
+8
+</head>
+9
+<body>
+10
+<h1 class="center">Acest titlu nu este afectat de stilul CSS</h1>
+11
+12 <p class="center">Acest paragraf este aliniat la centru cu CSS.</p>
+</body>
+13
+14 </html>
+Formatarea background-ului
+Propriet─â╚¢ile utilizate ├«n CSS pentru a defini fundalul unui element sunt:
+- background-color;
+- background-image;
+- background-repeat;
+- background-attachment;
+- background-position.
+Proprietatea background-color
+Proprietatea specific─â culoarea de fundal a unui element. Culoarea de fundal pentru ├«ntreaga pagin─â este definit─â ├«n
+selectorul body ca ├«n exemplul urm─âtor: Exemplul 6
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 body {
+6 background-color:#b0c4de;
+7 }
+8 </style>
+9 </head>
+10 <body>
+<h1>Pagina stilizata cu CSS!</h1>
+11
+<p>Buna ziua! Acesta este un exemplu de utilizare a stilurilor.</p>
+12
+</body>
+13
+14 </html>
+Exemplul 7: elementele h1, p, ╚Öi div au diferite culori de fundal
+Proprietatea background-image
+Aceast─â proprietate define╚Öte imaginea folosit─â ca fundal pentru un element. Implicit, imaginea se repet─â pe suprafa╚¢a
+├«ntregului element. Imaginea de fundal a paginii poate fi setat─â ca ├«n exemplul urm─âtor:
+Exemplul 8
+1
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 body {background-image:url("paper.gif");}
+6 </style>
+</head>
+7
+<body>
+8
+<h1>Buna ziua!</h1>
+9
+</body>
+10
+</html>
+11
+Observa╚¢ie:
+Construc╚¢ia url(...) precizeaz─â locul ├«n care este stocat─â imaginea.
+Imaginea de fundal trebuie aleas─â astfel ├«nc├ót textul s─â poat─â fi citit cu u╚Öurin╚¢─â.
+Proprietatea background-repeat
+Prin defini╚¢ie, proprietatea background-image repet─â o imagine ╚Öi vertical ╚Öi orizontal. Unele imagini trebuie repetate
+numai vertical sau numai orizontal. Dac─â dori╚¢i ca imaginea s─â se repete numai pe orizontal─â, folosi╚¢i valoarea repeat-x,
+iar pentru vertical─â folosi╚¢i repeat-y.
+Exemplul 9
+1
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 body {
+6 background-image:url("gradient2.png");
+background-repeat:repeat-x;
+7
+}
+8
+</style>
+9
+</head>
+10
+<body>
+11
+<h1>Buna ziua!</h1>
+12
+</body>
+13
+</html>
+14
+Proprietatea background-position ╚Öi no-repeat
+C├ónd folosi╚¢i o imagine de fundal ave╚¢i grij─â s─â nu ├«ngreuna╚¢i citirea textului. Dac─â dori╚¢i ca imaginea s─â fie afi╚Öat─â o
+singur─â dat─â (s─â nu se repete), folosi╚¢i valoarea no-repeat ca ├«n exemplul urm─âtor:
+Exemplul 10
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 body {
+6 background-image:url("tree.jpg");
+7 background-repeat:no-repeat;
+8 }
+9 </style>
+10 </head>
+11 <body>
+<h1>Buna ziua!</h1>
+12
+<p>Exemplu de imagine de fundal.</p>
+13
+<p>Imaginea este afisata o singura data,dar incomodeaza cititorul!</p>
+14
+</body>
+15
+</html>
+16
+Pentru a schimba pozi╚¢ia imaginii de fundal, folosi╚¢i proprietatea background-position ca ├«n exemplul
+urm─âtor:
+Exemplul 11
+1 <html>
+2 <head>
+3 <style type="text/css">
+4 body {
+5 background-image:url("tree.jpg");
+6 background-repeat:no-repeat;
+7 background-position:top right;
+8 margin-right:200px;
+9 }
+10 </style>
+11 </head>
+12 <body>
+13 <h1>Buna ziua!</h1>
+<p>Exemplu de imagine de fundal.</p>
+14
+<p>Imaginea este afisata o singura data si pozitionata in afara
+15
+textului.</p>
+16
+<p>In acest exemplu,marginea dreapta a textului a fost setata la 200
+17
+pixeli. In acest fel, textul nu se va suprapune cu imaginea.</p>
+18
+</body>
+19
+</html>
+Propriet─â╚¢i multiple pentru background
+Pentru a scurta codul, pute╚¢i preciza toate propriet─â╚¢ile ├«ntr-o proprietate numit─â scurt background ca ├«n exemplul
+urm─âtor: Exemplul 12
+1 <html>
+2 <head>
+3 <style type="text/css">
+4 body {
+5 background:#ffff00 url("tree.jpg") no-repeat top right;
+6 margin-right:200px;
+7 }
+8 </style>
+9 </head>
+10 <body>
+11 <h1>Buna ziua!</h1>
+12 <p>Imaginea este afisata o singura data si pozitionata in afara
+textului.</p>
+13
+<p>In acest exemplu,marginea dreapta a textului a fost setata la 200
+14
+pixeli. In acest fel, textul nu se va suprapune cu imaginea.</p>
+15
+</body>
+16
+</html>
+C├ónd folosi╚¢i proprietatea scurt─â, ordinea valorilor propriet─â╚¢ilor este:
+- background-color
+- background-image
+- background-repeat
+- background-attachment
+- background-position
+Nu conteaz─â dac─â valoarea unei propriet─â╚¢i lipse╚Öte, at├ót timp c├ót valorile prezente sunt scrise ├«n aceast─â ordine.
+Exemplul 13: Stabilirea unei imagini fixe de fundal. Imaginea nu se va deplasa odat─â cu restul paginii
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+body {
+5
+background-image:url("smiley.gif");
+6
+background-repeat:no-repeat;
+7
+background-attachment:fixed;
+8
+}
+9
+</style>
+10
+</head>
+11
+<body>
+12
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+13
+derulati pana la sfarsitul paginii.</p>
+14
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+15
+derulati pana la sfarsitul paginii.</p>
+16
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+17
+derulati pana la sfarsitul paginii.</p>
+18 <p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+19
+derulati pana la sfarsitul paginii.</p>
+20
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+21
+derulati pana la sfarsitul paginii.</p>
+22
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+23
+derulati pana la sfarsitul paginii.</p>
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+derulati pana la sfarsitul paginii.</p>
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+derulati pana la sfarsitul paginii.</p>
+<p>Imaginea de fundal este fixa. Incercati sa micsorati fereastra si sa
+derulati pana la sfarsitul paginii.</p>
+</body>
+</html>
+Propriet─â╚¢ile fundalului ├«n CSS
+Proprietate Descriere Valori
+background-color
+background-image
+Seteaz─â toate propriet─â╚¢ile background
+background-repeat
+background ├«ntr-o singur─â
+background-
+declara╚¢ie
+attachment
+background-position
+Stabile╚Öte dac─â imaginea de fundal este
+background- scroll
+fix─â sau
+attachment fixed
+defileaz─â ├«mpreun─â cu restul paginii
+color-rgb
+color-hex
+background-color Seteaz─â culoarea de fundal a unui element
+color-name
+transparent
+url(URL)
+background-image Seteaz─â imaginea de fundal a unui element
+none
+top left
+top center
+top right
+center left
+center center
+Seteaz─â pozi╚¢ia de ├«nceput a unei imagini
+background-position center right
+de fundal
+bottom left
+bottom center
+bottom right
+x% y%
+xpos ypos
+repeat
+Stabile╚Öte dac─â ╚Öi cum va fi repetat─â repeat-x
+background-repeat
+imaginea de fundal repeat-y
+no-repeat
+Formatarea textului
+ΓÇó Culoarea textului
+Culoarea textului este stabilit─â cu proprietatea color. Culoarea poate fi specificat─â prin:
+nume - un nume de culoare, de exemplu "red";
+RGB - o valoare RGB, de exemplu "rgb(255,0,0)";
+Hex - o valoare hexazecimal─â, de exemplu "#ff0000".
+Culoarea implicit─â pentru ├«ntreaga pagin─â este definit─â ├«n selectorul body.
+Exemplul 14
+1 <html>
+2 <head>
+3 <style type="text/css">
+4 body {color:red;}
+5 h1 {color:#00ff00;}
+6 p.ex {color:rgb(0,0,255);}
+7 </style>
+8 </head>
+<body>
+9
+<h1>Acesta este un titlu 1</h1>
+10
+<p>Acesta este un paragraf obisnuit si are culoarea rosie. Culoarea
+11
+implicita a textului paginii este definita in selectorul body.</p>
+12
+13 <p class="ex">Acesta este un paragraf din clasa "ex" si are culoarea
+14 albastra.</p>
+</body>
+15
+</html>
+ΓÇó Alinierea textului
+Proprietatea text-align este utilizat─â pentru a seta alinierea orizontal─â a textului. Textul poate fi aliniat la dreapta, la
+st├ónga, centrat sau justified.
+Exemplul 15
+<html>
+<head>
+1
+<style type="text/css">
+2
+h1 {text-align:center;}
+3
+p.date {text-align:right;}
+4
+p.main {text-align:justify;}
+5
+</style>
+6
+</head>
+7
+<body>
+8
+<h1>Exemplu de aliniere a textului cu CSS</h1>
+9
+<p class="date">Ianuarie, 2010</p>
+10
+11 <p class="main">ΓÇ¥ Daca asi sti ca efortul pentru scrierea unui roman ma
+12 poate costa viata,
+13 mi-asi lua toate masurile de siguranta pentru a inlatura o
+14 eventualitate cum ar fi boala din care
+15 sa mi se traga moartea.Dar unica masura hotaratoare, aceea de a
+renunta la scris, nu asi lua-o.ΓÇ¥
+16
+17 <br />Marin Preda</p><p><b>Observa╚¢ie:</b>
+18 Modifica╚¢i dimensiunea ferestrei browser-ului pentru a vedea cum arat─â
+19 alinierea justified.</p>
+</body>
+</html>
+ΓÇó Decorarea textului
+Proprietatea text-decoration este utilizat─â pentru a stabili decorarea unui text. Cel mai des este utilizat─â pentru a
+├«nl─âtura sublinierea link-urilor din motive de aspect, ca ├«n exemplul urm─âtor:
+1
+Exemplul 16
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 a {text-decoration:none;}
+6 </style>
+</head>
+7
+<body>
+8
+9 <p>Link catre: <a href="http://www.yahoo.com">Yahoo</a></p>
+10 </body>
+11 </html>
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+h1 {text-decoration:overline;}
+5
+h2 {text-decoration:line-through;}
+6
+h3 {text-decoration:underline;}
+7
+h4 {text-decoration:blink;}
+8
+</style>
+9
+</head>
+10
+<body>
+11
+<h1>Acesta este un titlu 1</h1>
+12
+<h2>Acesta este un titlu 2</h2>
+13
+<h3>Acesta este un titlu 3</h3>
+14
+<h4>Acesta este un titlu 4</h4>
+15
+<p><b>Obs:</b> Valoarea "blink" nu este recunoscuta de IE, Chrome, sau
+16
+Safari.</p>
+17
+</body>
+18
+</html>
+ΓÇó Transformarea textului
+Proprietatea text-transform este utilizat─â pentru a specifica literele mici ╚Öi literele mari dintr-un text. Poate fi utilizat─â
+pentru a transforma tot textul ├«n minuscule sau majuscule, sau pentru a transforma ├«n majuscul─â prima liter─â din fiecare
+cuv├ónt.
+Exemplul 17
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+p.uppercase {text-transform:uppercase;}
+5
+p.lowercase {text-transform:lowercase;}
+6
+p.capitalize {text-transform:capitalize;}
+7
+</style>
+8
+</head>
+9
+<body>
+10
+<p class="uppercase">Acesta este un text scris cu litere mari.</p>
+11
+<p class="lowercase">Acesta este un text scris cu litere mici.</p>
+12
+<p class="capitalize">Acesta este un text in care fiecare cuvant incepe
+13
+cu litera mare.</p>
+14
+</body>
+15
+</html>
+Exemplul 18: marinea/micsorarea spatiului dintre caractere
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 h1 {letter-spacing:2px;} 1 <html>
+6 h2 {letter-spacing:-3px;} 2 <head>
+7 </style> 3 <style type="text/css">
+8 </head> 4 p.small {line-height: 90%;}
+5
+9 <body> p.big {line-height: 200%;}
+6
+10 <h1>Acesta este un titlu 1</h1> </style>
+7
+11 <h2>Acesta este un titlu 2</h2> </head>
+8
+12 </body> <body>
+9
+</html> <p>
+13
+10
+Acesta este un paragraf cu distan╚¢a dintre linii normala.
+11
+In majoritatea browserelor, distanta standard dintre linii este intre
+12
+110% si 120%.
+13
+Acesta este un paragraf cu distanta dintre linii normala.
+14
+Exemplul 19: marinea/micsorarea </p>
+15
+<p class="small">
+spatiului dintre liniile unui paragraf
+16
+Acesta este un paragraf cu distanta dintre linii micsorata.
+17
+Acesta este un paragraf cu distanta dintre linii micsorata
+18
+Acesta este un paragraf cu distanta dintre linii micsorata.
+19
+</p>
+20
+<p class="big">
+21
+Acesta este un paragraf cu distanta dintre linii marita.
+22
+Acesta este un paragraf cu distanta dintre linii marita.
+23
+Acesta este un paragraf cu distanta dintre linii marita.
+24
+</p>
+25
+</body>
+26
+</html>
+Exemplul 20 :Ilustreaz─â cum se schimb─â direc╚¢ia textului pentru un element
+1
+2 <html>
+<head>
+3
+4 <style type="text/css">
+5 div.ex1 {direction:rtl;}
+6 </style>
+7 </head>
+8 <body>
+9 <div>Acest text are directia normala de scris.</div>
+10 <div class="ex1">Acest text este scris de la dreapta la stanga.</div>
+11 </body>
+12 </html>
+Exemplu 21: Ilustreaz─â cum se m─âre╚Öte spa╚¢iul dintre cuvintele unui paragraf
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+p {
+5
+word-spacing:30px;
+6
+}
+7
+</style>
+8
+</head>
+9
+<body>
+10
+<p>Acesta este un text cu distanta dintre cuvinte marita.</p>
+11
+</body>
+12
+</html>
+13
+Exemplu 22 : Ilustreaz─â cum se stabile╚Öte alinierea vertical─â a unei imagini din text
+<html>
+1
+<head>
+2
+<style type="text/css">
+3
+img.top {vertical-align:text-top;}
+4
+img.super {vertical-align:super;}
+5
+</style>
+6
+</head>
+7
+<body>
+8
+<p>O <img src="../Taj_Mahal.jpg" alt="Hotelul Taj Mahal" width="100" />
+9
+imagine in interiorul unui paragraf, cu aliniere verticala
+10
+implicita.</p>
+11
+<p>O <img class="top" src="../Taj_Mahal.jpg" alt="Hotelul Taj
+12
+13 Mahal" width="100" /> imagine in interiorul unui paragraf,cu aliniere la
+14 marginea de sus a textului.</p>
+<p>O <img class="super" src="../Taj_Mahal.jpg" alt="Hotelul Taj
+Propriet─â╚¢ile CSS pentru formatarea textului
+Proprietatea Descriere Valori
+color Seteaz─â culoarea textului color
+ltr
+direction Seteaz─â direc╚¢ia textului
+rtl
+normal
+number
+line-height Seteaz─â distan╚¢a dintre linii
+length
+%
+normal
+letter-spacing M─âre╚Öte sau mic╚Öoreaz─â spa╚¢iul dintre caractere
+length
+left
+right
+text-align Aliniaz─â un element ├«n cadrul textului
+center
+justify
+none
+underline
+text-decoration Adaug─â decora╚¢iuni unui text overline
+line-through
+blink
+length
+text-indent Indenteaz─â prima linie de text dintr-un element
+%
+text-shadow Adaug─â umbr─â unui text none
+color
+length
+none
+capitalize
+text-transform Controleaz─â literele unui element
+uppercase
+lowercase
+baseline
+sub
+super
+top
+text-top
+vertical-align Seteaz─â alinierea vertical─â a unui element
+middle
+bottom
+text-bottom
+length
+%
+normal
+white-space Seteaz─â spa╚¢iul alb din interiorul unui element pre
+nowrap
+normal
+word-spacing M─âre╚Öte sau mic╚Öoreaz─â spa╚¢iul dintre cuvinte
+length
+Fonturi
+Propriet─â╚¢ile CSS pentru fonturi definesc familia de fonturi, ├«ngro╚Öarea, m─ârimea ╚Öi stilul unui text.
+Familiile de fonturi ├«n CSS
+├Än CSS, numele unei familii de fonturi se poate defini ├«n dou─â moduri:
+ΓÇó Familie generic─â ΓÇô un grup de familii de fonturi care au un aspect similar (ca "Serif" sau "Monospace");
+ΓÇó Familie de fonturi ΓÇô o familie specific─â de fonturi (ca "Times New Roman" sau "Arial").
+Familia Familia
+Descriere
+generic─â specific─â
+Times New
+Fonturile de tip serif au linii mici la sf├ór╚Öitul unora
+Serif Roman
+dintre caractere.
+Georgia
+Arial "Sans" ├«nseamn─â f─âr─â ΓÇô aceste fonturi nu au linii la
+Sans-serif
+Verdana sf├ór╚Öitul caracterelor
+Courier New
+Monospace Toate caracterele monospace au aceea╚Öi l─â╚¢ime
+Lucida Console
+Familia de fonturi a unui text este stabilit─â cu proprietatea font-family. Aceast─â proprietate ar trebui s─â precizeze cel
+pu╚¢in dou─â familii de fonturi. Dac─â browserul nu recunoa╚Öte prima familie, o va ├«ncerca pe a doua. ├Äncepe╚¢i cu fontul
+pe care ├«l dori╚¢i ╚Öi termina╚¢i cu o familie generic─â.
+Observa╚¢ie: Dac─â numele familiei de fonturi este format din mai multe cuvinte, numele trebuie scris ├«ntre ghilimele,
+ca: "Times New Roman". Dac─â folosi╚¢i mai multe nume de fonturi, ele trebuie separate ├«n list─â prin virgul─â.
+Exemplul 23
+1
+<html>
+2
+<head>
+3
+4 <style type="text/css">
+5 p.serif {font-family:"Times New Roman", Times, Serif;}
+6 p.sansserif {font-family:Arial, Helvetica, Sans-serif;}
+</style>
+7
+</head>
+8
+<body>
+9
+<h1>Familiile de fonturi in CSS</h1>
+10
+11 <p class="serif">Acest paragraf foloseste fontul Times New Roman.</p>
+12 <p class="sansserif">Acest paragraf foloseste fontul Arial.</p>
+13 </body>
+14 </html>
+Proprietatea font-style
+Aceast─â proprietate este utilizat─â frecvent pentru a seta textul italic. Proprietatea are trei valori:
+ΓÇó normal ΓÇô textul este afi╚Öat normal; 1
+<html>
+2
+<head>
+ΓÇó italic ΓÇô textul este afi╚Öat italic;
+3
+<style type="text/css">
+4
+p.normal {font-style:normal;}
+ΓÇó oblique ΓÇô foarte similar cu italic,
+5
+p.italic {font-style:italic;}
+6
+p.oblique {font-style:oblique;}
+7
+</style>
+8
+</head>
+9
+<body>
+10
+<p class="normal">Acest paragraf este scris cu fontul normal.</p>
+11
+<p class="italic">Acest paragraf este scris cu fontul italic.</p>
+12
+<p class="oblique">Acest paragraf este scris cu fontul oblic.</p>
+13
+</body>
+14
+</html>
+15
+Stabilirea dimensiunii textului ├«n pixeli
+1 <html>
+2 <head>
+3 <style type="text/css">
+4 h1 {font-size:40px;}
+5 h2 {font-size:30px;}
+6 p {font-size:14px;}
+7 </style>
+8 </head>
+9 <body>
+<h1>Acesta este un titlu 1</h1>
+10
+<h2>Acesta este un titlu 2</h2>
+11
+<p>Acesta este un paragraf.</p>
+12
+<p>Daca precizati dimensiunea fontului in pixeli, in Firefox, Chrome,
+13
+si Safari textul va putea fi redimensionat, iar in Edge nu.</p>
+14
+</body>
+15
+</html>
+16
+Textul poate fi redimensionat ├«n orice browser folosind instrumentul zoom. Aceasta se aplic─â ├«ns─â ├«ntregii pagini, nu
+numai textului dorit.
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+p.ex1{
+5
+font:15px arial,sans-serif;
+6
+}
+7
+p.ex2{
+8
+font:italic bold 12px/30px Georgia, serif;
+9
+}
+10
+</style>
+11
+</head>
+12
+<body>
+13
+<p class="ex1">Acesta este un paragraf. Acesta este un paragraf. Acesta
+14
+este un paragraf. Acesta este un paragraf. Acesta este un paragraf.
+15
+Acesta este un paragraf. Acesta este un paragraf. Acesta este un
+16
+paragraf. </p>
+17
+<p class="ex2"> Acesta este un paragraf. Acesta este un paragraf. Acesta
+este un paragraf. Acesta este un paragraf. Acesta este un paragraf.
+Acesta este un paragraf. Acesta este un paragraf. Acesta este un
+paragraf. </p>
+</body>
+</html>
+Ilustreaz─â cum pute╚¢i folosi proprietatea scurt─â pentru a stabili toate caracteristicile fontului ├«ntr-o singur─â declara╚¢ie.
+Proprietate Descriere Valori
+Propriet─â╚¢ile pentru fonturi ├«n CSS
+font-style
+font-variant
+font-weight
+font-size/line-
+height
+Seteaz─â toate propriet─â╚¢ile fontului ├«ntr-o singur─â font-family
+font
+declara╚¢ie caption
+icon
+menu
+message-box
+small-caption
+status-bar
+family-name
+font-family Specific─â familia de fonturi
+generic-family
+xx-small
+x-small
+small
+medium
+large
+font-size Specific─â dimensiunea fontului x-large
+xx-large
+smaller
+larger
+length
+%
+normal
+font-style Specific─â stilul fontului italic
+oblique
+font- Specific─â dac─â textul este afi╚Öat sau nu cu majuscule normal
+variant mici small-caps
+normal
+bold
+font-weight Specific─â grosimea fontului
+bolder
+lighter
+Linkuri
+ΓÇó Formatarea linkurilor
+Linkurile pot fi stilizate cu ajutorul propriet─â╚¢ilor CSS , cum ar fi color, font- family, background-color. Special
+pentru linkuri este faptul c─â ele trebuie formatate diferit, ├«n func╚¢ie de starea ├«n care sunt. Cele patru st─âri ale unui link
+sunt:
+a:link - link normal, nevizitat;
+a:visited - link care a fost vizitat de user;
+a:hover - link peste care se mi╚Öc─â mouse-ul;
+a:active - link ap─âsat (activ).
+<html>
+1
+<head>
+2
+<style type="text/css">
+3
+a:link {color:#FF0000} /* link nevizitat */
+4
+a:visited {color:#00FF00} /* link vizitat */
+C├ónd stabili╚¢i stilul linkurilor, exist─â
+5
+a:hover {color:#FF00FF} /* link peste care se misca mouse-ul */
+anumite reguli privind ordinea 6
+a:active {color:#0000FF} /* link selectat */
+7
+declara╚¢iilor: </style>
+8
+</head>
+a:hover trebuie scris─â dup─â a:link ╚Öi 9
+<body>
+10
+a:visited <p><b><a href="http://www.google.com" target="_blank">Acesta este un
+11
+link</a></b></p>
+a:active trebuie scris─â dup─â a:hover
+ΓÇó 12
+<p><b>Nota:</b> a:hover TREBUIE scrisa in definitia CSS dupa a:link si
+13
+a:visited pentru a fi efectiva.</p>
+14
+<p><b>Nota:</b> a:active TREBUIE scrisa in definitia CSS dupa a:hover
+15
+pentru a fi efectiva.</p>
+16
+</body>
+</html>
+Liste 1
+2 <html>
+3 <head>
+Propriet─â╚¢ile CSS pentru liste v─â permit s─â:
+4 <style type="text/css">
+5 ul.a {list-style-type:circle;}
+- seta╚¢i diferi╚¢i marcatori pentru itemii dintr-o list─â ordonat─â sau neordonat─â 6 ul.b {list-style-type:square;}
+7 ol.c {list-style-type:upper-roman;}
+8 ol.d {list-style-type:lower-alpha;}
+- s─â seta╚¢i o imagine ca marcator pentru itemii unei liste neordonate
+9 </style>
+10 </head>
+11 <body>
+<p>Exemplu de lista neordonata:</p>
+12
+13 <ul class="a">
+Setarea diferi╚¢ilor marcatori
+14 <li>Cafea</li>
+15 <li>Ceai</li>
+Tipul marcatorilor itemilor dintr-o list─â neordonat─â 16 <li>Pepsi</li>
+17 </ul>
+se stabile╚Öte cu proprietatea list-style- type. 18 <ul class="b">
+19 <li>Cafea</li>
+20 <li>Ceai</li>
+21 <li>Pepsi</li>
+22 </ul>
+23 <p>Exemplu de list─â ordonat─â:</p>
+24 <ol class="c">
+25 <li>Cafea</li>
+26 <li>Ceai</li>
+27 <li>Pepsi</li>
+28 </ol>
+29 <ol class="d">
+30 <li>Cafea</li>
+31 <li>Ceai</li>
+32 <li>Pepsi</li>
+33 </ol>
+34 </body>
+35 </html>
+Valorile propriet─â╚¢ii pentru liste ordonate
+Valoare Descriere
+armenian Marcatorul este un num─âr tradi╚¢ional armenesc
+decimal Marcatorul este un num─âr ├«n baza zece
+decimal-leading-
+Marcatorul este un num─âr precedat de zero (01, 02, 03, etc.)
+Valorile propriet─â╚¢ii pentru liste neordonate zero
+Marcatorul este un num─âr tradi╚¢ional georgian (an, ban, gan,
+georgian
+Valoare Descriere etc.)
+none F─âr─â marcator lower-alpha Marcatorul este litera mica (a, b, c, d, e, etc.)
+disc Implicit. Marcatorul este un cerc plin Marcatorul este liter─â mic─â greceasc─â (alpha, beta, gamma,
+lower-greek
+etc.)
+circle Marcatorul este un cerc gol
+lower-latin Marcatorul este liter─â latin─â mic─â (a, b, c, d, e, etc.)
+square Marcatorul este un p─âtrat
+lower-roman Marcatorul este num─âr roman mic (i, ii, iii, iv, v, etc.)
+upper-alpha Marcatorul ete liter─â mare (A, B, C, D, E, etc.)
+upper-latin Marcatorul este liter─â latin─â mare (A, B, C, D, E, etc.)
+upper-roman Marcatorul este num─âr roman mare (I, II, III, IV, V, etc.)
+O imagine ca marcator ├«n list─â
+Pentru a specifica o imagine ca marcator ├«ntr-o list─â se utilizeaz─â proprietatea
+list-style- image, ca ├«n exemplul urm─âtor:
+Proprietatea scurt─â
+1
+<html>
+2
+< head> Pute╚¢i specifica toate propriet─â╚¢ile unei liste
+3
+<style type="text/css">
+4 ├«ntr-o singur─â declara╚¢ie folosind list-style
+ul{
+5
+list-style-image:url('sqpurple.gif');
+6
+ca ├«n urm─âtorul exemplu:
+}
+7
+</style>
+8
+</head>
+9 1
+<body>
+10 2 <html>
+<ul>
+11 3 <head>
+<li>Ceai</li>
+12 4 <style type="text/css">
+<li>Cafea</li>
+13 5 ul
+<li>Lapte</li>
+14 6 {
+</ul>
+15 7 list-style:square url("sqpurple.gif");
+</body>
+16 </html> 8 }
+17 9 </style>
+10 </head>
+11 <body>
+12 <ul>
+13 <li>Cafea</li>
+14 <li>Ceai</li>
+<li>Lapte</li>
+15
+</ul>
+16
+</body>
+17
+18 </html>
+15 ol.m {list-style-type:upper-latin;}
+16 ol.n {list-style-type:armenian;}
+17 ol.o {list-style-type:georgian;}
+1 <html> 18 </style>
+19 </head>
+2 <head> 20 <body>
+3 <style type="text/css"> 21 <ul class="a">
+4 ul.a {list-style-type:disc;} 2 2 2 3 < < l l i i > > D C i e s a c i u < r / i l < i / > li> 7 7 1 0 </ol>
+5 ul.b {list-style-type:circle;} 24 <li>Cafea</li> <ol class="k">
+72
+6 ul.c {list-style-type:square;} 25 </ul> <li>Litere grecesti mici</li>
+26 73
+7 ul.d {list-style-type:none;} 27 < <l u i l > c C l e a r s c s u = r " i b < " / > l i> 74 <li>Cai</li>
+8 ol.e {list-style-type:decimal;} 28 <li>Ceai</li> 75 <li>Iepuri</li>
+9 ol.f {list-style-type:decimal-leading-zero;} 2 3 9 0 < < l / i u > l C > a fea</li> 76 < </ o o l l c > l ass="l">
+10 ol.g {list-style-type:lower-roman;} 31 <ul class="c"> 77
+<li>Litere latine mici</li>
+11 ol.h {list-style-type:upper-roman;} 32 <li>Patrate</li> 78
+12 ol.i {list-style-type:lower-alpha;} 3 3 3 4 < < l l i i > > P O a u i a n < e / < l / i l > i > 79 < < l l i i > > S L u a c p < t / e l < i / > li >
+13 ol.j {list-style-type:upper-alpha;} 35 </ul> 80 </ol>
+14 ol.k {list-style-type:lower-greek;} 36 <ul class="d"> 81
+37 <ol class="m">
+ol.l {list-style-type:lower-latin;} 38 < <l l i i > > C F a a r r t a i < m / a l r i c > a tori</li> 82 <li>Litere latine mari</li>
+39 <li>Caiete</li> 83 <li>Carti</li>
+40 </ul> 84
+41 <li>Reviste</li>
+<ol class="e"> 85
+42 <li>Marcatori cifre</li> </ol>
+43 86
+<li>Baieti</li> <ol class="n">
+44 <li>Fete</li> 87
+45 </ol> <li>Marcatori armenesti</li>
+Acest exemplu ilustreaz─â utilizarea 46 <ol class="f"> 88 <li>Pantaloni</li>
+47 89
+<li>Marcatori care incep cu zero</li> <li>Sacouri</li>
+tuturor tipurilor de marcatori ├«n CSS. 48 <li>Rochii</li> 90
+</ol>
+49 <li>Camasi</li> 91
+50 </ol> <ol class="o">
+51 92
+<ol class="g"> <li>Marcatori georgieni</li>
+52 <li>Cifre romane mici</li> 93
+53 <li>Bere</li>
+<li>Case</li> 94
+54 <li>Vin</li>
+<li>Vile</li>
+55 </ol> 95 </ol>
+56 <ol class="h"> 96 </body>
+57
+<li>Cifre romane mari</li> 97
+58 </html>
+<li>Carioci</li>
+59 98
+<li>Acuarele</li>
+60 99
+</ol>
+61
+<ol class="i">
+62
+<li>Marcatori litere mici</li>
+63
+<li>Mere</li>
+64
+<li>Lamai</li>
+65
+</ol>
+66
+<ol class="j">
+67
+<li>Marcatori litere mari</li>
+68
+<li>Gutui</li>
+69
+Propriet─â╚¢ile pentru liste ├«n CSS
+Proprietate Descriere Valori
+list-style-type
+Precizeaz─â toate propriet─â╚¢ile listei ├«ntr-o singur─â list-style-
+list-style
+declara╚¢ie position
+list-style-image
+list-style- URL
+Specific─â o imagine drept marcator
+image none
+list-style- Specific─â dac─â marcatorii din list─â sunt ├«n interiorul inside
+position sau exteriorul con╚¢inutului outside
+none
+disc
+circle
+square
+decimal
+list-style-type Specific─â tipul marcatorilor din list─â decimal-
+leadingzero
+armenian
+georgian
+lower-alpha
+upper-alpha
+lower-greek
+lower-latin
+upper-latin
+lower-roman
+upper-roman
+Tabele
+Aspectul unui tabel HTML poate fi ├«mbun─ât─â╚¢it folosind CSS.
+Chenarele tabelului
+Pentru a specifica chenarele unui tabel ├«n CSS, se folose╚Öte proprietatea border. Exemplul urm─âtor seteaz─â un chenar negru
+pentru tabel ╚Öi pentru elementele th ╚Öi td:
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 table,th,td{
+6 border:1px solid black;
+7 }
+8 </style>
+9 </head>
+10 <body>
+11 <table>
+12 <tr><th>Nume</th><th>Prenume</th></tr>
+13 <tr><td>Scutelnic</td><td>Speran╚¢a</td></tr>
+<tr><td>Cojocaru</td><td>Cristian</td></tr>
+14
+</table>
+15
+</body>
+16
+</html>
+17
+Observa╚¢i c─â tabelul din exemplu are chenare duble. Acest lucru se ├«nt├ómpl─â deoarece elementele table, th, ╚Öi td au chenare
+separate. Pentru a afi╚Öa un singur chenar pentru tabel, folosi╚¢i proprietatea border-collapse.
+Proprietatea border-collapse
+Aceast─â proprietate specific─â dac─â chenarele tabelului sunt sau nu reunite ├«ntrunul singur.
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+table {
+5
+border-collapse:collapse;
+6
+}
+7
+table, td, th{
+8
+border:1px solid black;
+9
+}
+10
+</style>
+11
+</head>
+12
+<body>
+13
+<table>
+14
+<tr><th>Nume</th><th>Prenume</th></tr>
+15
+<tr><td>Scutelnic</td><td>Speran╚¢a</td></tr>
+16
+<tr><td>Cojocaru</td><td>Cristian</td></tr>
+17
+</table>
+18
+</body>
+19
+</html>
+20
+Dimensiunile unui tabel
+Cu ajutorul propriet─â╚¢ilor width ╚Öi height pute╚¢i stabili l─â╚¢imea ╚Öi ├«n─âl╚¢imea unui tabel. ├Än exemplul urm─âtor l─â╚¢imea
+tabelului este stabilit─â la 100% ╚Öi ├«n─âl╚¢imea elementelor th la 50px:
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 table,td,th {
+6 border:1px solid black;
+7 }
+8 table {
+9 width:100%;
+10 }
+11 th {
+12 height:50px;
+13 }
+14 </style>
+15 </head>
+<body>
+16
+<table>
+17
+18 <tr><th>Nume</th><th>Prenume</th><th>Economii</th></tr>
+19 <tr><td>Scutelnic</td><td>Speran╚¢a</td><td>5000 MDL</td></tr>
+<tr><td>Cojocaru</td><td>Cristian</td><td>3500 MDL</td></tr>
+20
+<tr><td>Barbu</td><td>Lucia</td><td>3000 MDL</td></tr>
+21
+<tr><td>David</td><td>Andrei</td><td>4500 MDL</td></tr>
+22
+</table>
+23
+</body>
+24
+</html>
+25
+Alinierea textului din tabel
+Pentru a alinia textul dintr-un tabel se folosesc propriet─â╚¢ile text-align ╚Öi vertical-align. Proprietatea text-align
+stabile╚Öte alinierea orizontal─â a textului, care poate avea valorile left, right sau center:
+1
+<html>
+2
+<head>
+3
+<style type="text/css">
+4
+table,td,th {
+5
+border:1px solid black;
+6
+}
+7 td {
+8 text-align:right;
+9 }
+10 </style>
+11 </head>
+12 <body>
+13 <table>
+14 <tr><th>Nume</th><th>Prenume</th><th>Economii</th></tr>
+15 <tr><td>Scutelnic</td><td>Speran╚¢a</td><td>5000 MDL</td></tr>
+16 <tr><td>Cojocaru</td><td>Cristian</td><td>3500 MDL</td></tr>
+17 <tr><td>Barbu</td><td>Lucia</td><td>3000 MDL</td></tr>
+18 <tr><td>David</td><td>Andrei</td><td>4500 MDL</td></tr>
+19 </table>
+20 </body>
+21 </html>
+22
+Proprietatea vertical-align stabile╚Öte alinierea vertical─â a textului, ╚Öi poate avea valorile top, bottom sau middle:
+1
+2 <html>
+3 <head>
+4 <style type="text/css">
+5 table, td, th {
+6 border:1px solid black;
+7 }
+8 td {
+9 height:50px;
+10 vertical-align:bottom;
+11 }
+12 </style>
+13 </head>
+14 <body>
+<table>
+15
+<tr><th>Nume</th><th>Prenume</th><th>Economii</th></tr>
+16
+<tr><td>Scutelnic</td><td>Speran╚¢a</td><td>5000 MDL</td></tr>
+17
+<tr><td>Cojocaru</td><td>Cristian</td><td>3500 MDL</td></tr>
+18
+<tr><td>Barbu</td><td>Lucia</td><td>3000 MDL</td></tr>
+19
+<tr><td>David</td><td>Andrei</td><td>4500 MDL</td></tr>
+20
+</table>
+21
+</body>
+22
+</html>
+23
+

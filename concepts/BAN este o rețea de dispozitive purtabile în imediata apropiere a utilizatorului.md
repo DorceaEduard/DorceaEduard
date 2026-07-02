@@ -10,3 +10,5 @@ created: 2026-06-30
 # BAN este o rețea de dispozitive purtabile în imediata apropiere a utilizatorului
 
 Componentă: senzori medicali, dispozitive media, transmițător. Utilizează protocoale Ultra-Low-Power și politici de securitate eficiente. Aplicabilitate: domeniul medical, sporturi, monitorizarea vârstnicilor (detectare căderi, monitorizare semnale vitale).
+
+Topics: [[Retelistică]]

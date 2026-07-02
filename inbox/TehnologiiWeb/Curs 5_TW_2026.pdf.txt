@@ -1,0 +1,719 @@
+﻿Tehnologii WEB
+Curs 5
+CSS - continuare
+: 6gyjd1x
+Cod Teams
+Anul III, semestrul II
+2026
+CSS Flexbox
+Modulul Flexbox Layout (Flexible Box) ├«╚Öi propune s─â ofere o modalitate mai eficient─â de a amplasa,
+alinia ╚Öi distribui spa╚¢iul ├«ntre elementele dintr-un container, chiar ╚Öi atunci c├ónd dimensiunea lor este necunoscut─â
+╚Öi/sau dinamic─â (de unde ╚Öi cuv├óntul ΓÇ₧flexΓÇ¥).
+Ideea principal─â din spatele layout-ului flexibil este de a
+oferi containerului posibilitatea de a modifica l─â╚¢imea/├«n─âl╚¢imea
+(╚Öi ordinea) elementelor sale pentru a umple c├ót mai bine spa╚¢iul
+disponibil (├«n principal pentru a se adapta la toate tipurile de
+dispozitive de afi╚Öare ╚Öi dimensiuni de ecran). Un container
+flexibil extinde elementele pentru a umple spa╚¢iul liber disponibil
+sau le mic╚Öoreaz─â pentru a preveni supraaglomerarea.
+No╚¢iuni de baz─â ╚Öi terminologie Flexbox
+├Äntruc├ót flexbox este un modul ├«ntreg ╚Öi nu o singur─â proprietate, implic─â o mul╚¢ime de lucruri, inclusiv ├«ntregul set de
+propriet─â╚¢i. Unele dintre ele sunt destinate a fi setate pe container (elementul p─ârinte, cunoscut sub numele de
+ΓÇ₧container flexΓÇ¥), ├«n timp ce altele sunt destinate a fi setate pe fii (numite ΓÇ₧elemente flexΓÇ¥).
+Dac─â aspectul ΓÇ₧regulatΓÇ¥ se bazeaz─â at├ót pe direc╚¢iile de curgere ├«n bloc, c├ót ╚Öi pe cele ├«n linie, aspectul flexibil se
+bazeaz─â pe ΓÇ₧direc╚¢iile de curgere flexibileΓÇ¥.
+Elementele vor fi a╚Öezate fie urm├ónd axa main axis (de la main-start la main-end), fie dup─â axa transversal─â (de la
+cross-start la cross-end).
+ΓÇó axa principal─â ΓÇô Axa principal─â a unui container flexibil este axa principal─â de-a lungul c─âreia sunt a╚Öezate
+elementele flexibile. Aten╚¢ie, nu este neap─ârat orizontal─â; depinde de flex-directionproprietate (vezi mai jos).
+ΓÇó main-start | main-end ΓÇô Elementele flex sunt plasate ├«n container ├«ncep├ónd de la main-start ╚Öi merg├ónd spre main-
+end.
+ΓÇó dimensiune principal─â ΓÇô L─â╚¢imea sau ├«n─âl╚¢imea unui element flexibil, oricare dintre acestea se afl─â ├«n dimensiunea
+principal─â, reprezint─â dimensiunea principal─â a elementului. Proprietatea de dimensiune principal─â a elementului
+flexibil este fie proprietatea ΓÇ₧l─â╚¢imeΓÇ¥, fie proprietatea ΓÇ₧├«n─âl╚¢imeΓÇ¥, oricare dintre acestea se afl─â ├«n dimensiunea
+principal─â.
+ΓÇó ax─â transversal─â ΓÇô Axa perpendicular─â pe axa principal─â se nume╚Öte ax─â transversal─â. Direc╚¢ia sa depinde de
+direc╚¢ia axei principale.
+ΓÇó ├«nceput ├«ncruci╚Öat | cap─ât ├«ncruci╚Öat ΓÇô Liniile flexibile sunt umplute cu articole ╚Öi plasate ├«n container, ├«ncep├ónd
+de pe partea de ├«nceput ├«ncruci╚Öat a containerului flexibil ╚Öi merg├ónd spre partea de cap─ât ├«ncruci╚Öat.
+ΓÇó dimensiunea ├«ncruci╚Öat─â ΓÇô L─â╚¢imea sau ├«n─âl╚¢imea unui element flexibil, oricare dintre ele se afl─â ├«n dimensiunea
+├«ncruci╚Öat─â, este dimensiunea ├«ncruci╚Öat─â a elementului. Proprietatea dimensiunii ├«ncruci╚Öate este oricare dintre
+ΓÇ₧l─â╚¢imeΓÇ¥ sau ΓÇ₧├«n─âl╚¢imeΓÇ¥ care se afl─â ├«n dimensiunea ├«ncruci╚Öat─â.
+Propriet─â╚¢i CSS Flexbox
+Propriet─â╚¢i pentru elementul p─ârinte (container flexibil)
+Display: Aceasta define╚Öte un container flex; inline sau block, ├«n func╚¢ie de valoarea dat─â. Activeaz─â un context flex
+pentru to╚¢i copiii s─âi direc╚¢i. Coloanele CSS nu au niciun efect asupra unui container flex.
+.container { display: flex; /* or inline-flex */ }
+Flex-direction: Aceasta stabile╚Öte axa principal─â, definind astfel direc╚¢ia ├«n care elementele flex sunt plasate ├«n
+containerul flex. Flexbox este (├«n afar─â de ├«ncadrarea op╚¢ional─â) un concept de layout unidirec╚¢ional. G├óndi╚¢i-v─â la
+elementele flex ca fiind dispuse ├«n principal fie ├«n r├ónduri orizontale, fie ├«n coloane verticale.
+.container { flex-direction: row | row-reverse | column |
+column-reverse; }
+ΓÇó row(implicit): de la st├ónga la dreapta ├«n─âuntru ltr; de la dreapta la st├ónga ├«n─âuntrurtl
+ΓÇó row-reverse: de la dreapta la st├ónga ├«n─âuntru ltr; de la st├ónga la dreapta ├«n─âuntrurtl
+ΓÇó Column la fel ca, row dar de sus ├«n jos
+ΓÇó column-reverse la fel ca, row-reverse dar de jos ├«n sus
+Flex-wrap: ├Än mod implicit, toate elementele flexibile vor ├«ncerca s─â se ├«ncadreze pe o singur─â linie. Pute╚¢i modifica
+acest lucru ╚Öi pute╚¢i permite elementelor s─â se ├«ncadreze dup─â cum este necesar cu ajutorul acestei propriet─â╚¢i.
+.container { flex-wrap: nowrap | wrap | wrap-reverse; }
+ΓÇó nowrap (implicit): toate elementele flexibile vor fi pe o singur─â linie
+ΓÇó Wrap - Elementele flexibile se vor ├«ncadra pe mai multe linii, de sus ├«n jos.
+ΓÇó wrap-reverse - Elementele flexibile se vor ├«ncadra pe mai multe linii de jos ├«n sus.
+Flex-flow: Aceasta este o prescurtare pentru propriet─â╚¢ile flex-direction╚Öi flex-wrap, care ├«mpreun─â definesc axa
+principal─â ╚Öi axa transversal─â a containerului flex. Valoarea implicit─â este row nowrap. (flux flexibil)
+.container { flex-flow: column wrap; }
+Justify-content: Aceasta define╚Öte alinierea de-a lungul axei principale. Ajut─â la distribuirea spa╚¢iului liber
+suplimentar r─âmas atunci c├ónd toate elementele flexibile de pe o linie sunt inflexibile sau sunt flexibile, dar au atins
+dimensiunea maxim─â. De asemenea, exercit─â un anumit control asupra alinierii elementelor atunci c├ónd acestea
+dep─â╚Öesc linia.
+.container { justify-content: flex-start | flex-end | center | space-between | space-
+around | space-evenly | start | end | left | right ... + safe | unsafe; }
+ΓÇó flex-start(implicit): articolele sunt ├«mpachetate spre ├«nceputul direc╚¢iei flexibile.
+ΓÇó flex-end - Articolele sunt ambalate spre sf├ór╚Öitul direc╚¢iei de flexie.
+ΓÇó start: articolele sunt ambalate spre ├«nceputul direc╚¢iei writing-mode.
+ΓÇó end: articolele sunt ambalate spre sf├ór╚Öitul direc╚¢iei writing-mode.
+ΓÇó left: elementele sunt ├«mpachetate spre marginea st├óng─â a containerului, cu excep╚¢ia cazului
+├«n care acest lucru nu are sens cu flex-direction, atunci se comport─â ca start.
+ΓÇó right: elementele sunt ├«mpachetate spre marginea dreapt─â a containerului, cu excep╚¢ia cazului
+├«n care acest lucru nu are sens cu flex-direction, atunci se comport─â ca end.
+ΓÇó center: elementele sunt centrate de-a lungul liniei
+ΓÇó space-between - Elementele sunt distribuite uniform pe linie; primul element este pe linia de ├«nceput, ultimul element
+pe linia de sf├ór╚Öit
+ΓÇó space-around: elementele sunt distribuite uniform pe linie, cu spa╚¢iu egal ├«n jurul lor. Re╚¢ine╚¢i c─â vizual spa╚¢iile nu sunt
+egale, deoarece toate elementele au spa╚¢iu egal pe ambele p─âr╚¢i. Primul element va avea o unitate de spa╚¢iu pe marginea
+containerului, dar dou─â unit─â╚¢i de spa╚¢iu ├«ntre urm─âtorul element, deoarece acesta are propria sa spa╚¢iere aplicat─â.
+ΓÇó space-evenly: elementele sunt distribuite astfel ├«nc├ót spa╚¢ierea dintre oricare dou─â elemente (╚Öi spa╚¢iul p├ón─â la margini)
+s─â fie egal─â.
+Align-items: Aceasta define╚Öte comportamentul implicit pentru modul ├«n care elementele flexibile sunt dispuse de-a lungul
+axei transversale pe linia curent─â. G├óndi╚¢i-v─â la aceasta ca la justify-content versiunea pentru axa transversal─â (perpendicular─â
+pe axa principal─â).
+.container { align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last
+baseline | start | end | self-start | self-end + ... safe | unsafe; }
+ΓÇó stretch(implicit): se ├«ntinde pentru a umple containerul (respect├ónd
+├«n continuare l─â╚¢imea minim─â/l─â╚¢imea maxim─â)
+ΓÇó flex-start/ start/ self-start: obiectele sunt plasate la ├«nceputul axei transversale.
+Diferen╚¢a dintre acestea este subtil─â ╚Öi const─â ├«n respectarea flex-direction regulilor sau
+a writing-mode regulilor.
+ΓÇó flex-end/ end/ self-end: obiectele sunt plasate la cap─âtul axei transversale.
+Diferen╚¢a este din nou subtil─â ╚Öi const─â ├«n respectarea flex-direction regulilor versus
+writing-mode regulile obi╚Önuite.
+ΓÇó center: elementele sunt centrate pe axa transversal─â
+ΓÇó baselineelementele sunt aliniate, cum ar fi liniile lor de baz─â aliniate
+Align-content: Aceasta aliniaz─â liniile unui container flexibil ├«n interiorul acestuia atunci c├ónd exist─â spa╚¢iu
+suplimentar pe axa transversal─â, similar cu modul ├«n care justify-content se aliniaz─â elementele individuale ├«n cadrul
+axei principale.
+.container { align-content: flex-start | flex-end | center | space-between |
+space-around | space-evenly | stretch | start | end | baseline | first
+baseline | last baseline + ... safe | unsafe; }
+ΓÇó normal(implicit): articolele sunt ambalate ├«n pozi╚¢ia lor implicit─â ca ╚Öi cum
+nu ar fi fost setat─â nicio valoare.
+ΓÇó flex-start/ start: articole ambalate la ├«nceputul containerului. (mai acceptat)
+flex-start respect─â ├«n flex-direction timp ce start respect─â writing-mode direc╚¢ia.
+ΓÇó flex-end/ end: articole ambalate p├ón─â la cap─âtul containerului.
+(mai mult suport) flex-end onoreaz─â ├«n flex-direction timp ce cap─âtul onoreaz─â
+writing-mode direc╚¢ia.
+ΓÇó center: elemente centrate ├«n container
+ΓÇó space-between: elemente distribuite uniform; prima linie este la ├«nceputul
+containerului, iar ultima este la sf├ór╚Öit
+ΓÇó space-around: elemente distribuite uniform cu spa╚¢iu egal ├«n jurul fiec─ârei linii
+ΓÇó space-evenly elementele sunt distribuite uniform, cu spa╚¢iu egal ├«n jurul lor
+ΓÇó stretch liniile se ├«ntind pentru a ocupa spa╚¢iul r─âmas
+Proprietatea gap controleaz─â explicit spa╚¢iul dintre elementele flexibile. Aplic─â aceast─â spa╚¢iere doar ├«ntre elementele
+care nu se afl─â pe marginile exterioare. (gol, gol ├«ntre r├ónduri, gol ├«ntre coloane)
+.container { display: flex; ... gap: 10px; gap: 10px 20px; /* row-gap column gap */
+row-gap: 10px; column-gap: 20px; }
+Propriet─â╚¢i pentru copii (articole flexibile)
+Order: ├Än mod implicit, elementele flex sunt a╚Öezate ├«n ordinea surs─â.
+Cu toate acestea, proprietatea order (comanda) controleaz─â ordinea ├«n care acestea apar ├«n containerul flex.
+.item { order: 5; /* default is 0 */ }
+Elementele cu aceea╚Öi valoare order revin la ordinea surs─â.
+Flex-grow: Aceasta define╚Öte capacitatea unui element
+Flex-shrink: Aceasta define╚Öte capacitatea unui element
+flexibil de a cre╚Öte dac─â este necesar. Accept─â o valoare
+flexibil de a se mic╚Öora dac─â este necesar. Numerele negative
+f─âr─â unit─â╚¢i care serve╚Öte drept propor╚¢ie. Dicteaz─â ce
+sunt invalide.
+cantitate din spa╚¢iul disponibil ├«n interiorul containerului
+flexibil ar trebui s─â ocupe elementul. .item { flex-shrink: 3; /* default 1 */ }
+Flex-basis: Aceasta define╚Öte dimensiunea implicit─â a unui
+Dac─â toate elementele au flex-grow valoarea 1, spa╚¢iul
+element ├«nainte ca spa╚¢iul r─âmas s─â fie distribuit. Poate fi o
+r─âmas ├«n container va fi distribuit ├«n mod egal tuturor
+lungime (de exemplu, 20%, etc.) sau un cuv├ónt cheie.
+copiilor. Dac─â unul dintre copii are valoarea 2, acel copil
+Cuv├óntul autocheie ├«nseamn─â ΓÇ₧uit─â-te la proprietatea mea
+va ocupa de dou─â ori mai mult spa╚¢iu dec├ót oricare dintre
+l─â╚¢ime sau ├«n─âl╚¢imeΓÇ¥ (ceea ce era f─âcut temporar de main-size
+ceilal╚¢i (sau va ├«ncerca, cel pu╚¢in). Numerele negative sunt
+cuv├óntul cheie p├ón─â c├ónd a fost depreciat). Content Cuv├óntul
+invalide.
+cheie ├«nseamn─â ΓÇ₧dimensioneaz─â-l ├«n func╚¢ie de con╚¢inutul
+.item { flex-grow: 4; /* default 0 */ }
+elementuluiΓÇ¥ ΓÇô acest cuv├ónt cheie nu este ├«nc─â bine suportat,
+a╚Öa c─â este greu de testat ╚Öi mai greu de ╚Ötiut ce fac fra╚¢ii
+s─âi max-content, min-content, ╚Öi fit-content.
+.item { flex-basis: | auto; /* default auto */ }
+Dac─â este setat la 0, spa╚¢iul suplimentar din jurul con╚¢inutului
+nu este luat ├«n considerare. Dac─â este setat la auto, spa╚¢iul
+suplimentar este distribuit ├«n func╚¢ie de flex-grow valoarea sa.
+Flex: Aceasta este prescurtarea pentru flex-grow, flex-shrink ╚Öi flex-basis combinate. Al doilea ╚Öi al treilea parametru (
+flex-shrink ╚Öi flex-basis) sunt op╚¢ionale. Implicit este 0 1 auto, dar dac─â ├«l seta╚¢i cu o singur─â valoare numeric─â, cum ar fi
+flex: 5;, aceasta schimb─â flex-basis la 0%, deci este ca ╚Öi cum a╚¢i seta flex-grow: 5; flex-shrink: 1; flex-basis: 0%;.
+.item { flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ] }
+Se recomand─â utilizarea acestei propriet─â╚¢i prescurtate ├«n loc s─â seta╚¢i propriet─â╚¢ile individuale. Prescurtarea seteaz─â
+celelalte valori ├«n mod inteligent.
+Align-self: Aceasta permite suprascrierea alinierii implicite (sau a celei specificate) pentru elementele flexibile
+individuale.
+.item { align-self: auto | flex-start | flex-end | center | baseline | stretch; }
+Re╚¢ine╚¢i c─â float, clear ╚Öi vertical-align nu au niciun efect asupra unui element flexibil.
+CSS Grid
+CSS Grid Layout (cunoscut ╚Öi sub numele de ΓÇ₧GridΓÇ¥ sau ΓÇ₧CSS GridΓÇ¥) este un sistem de aspect
+bidimensional bazat pe gril─â care, ├«n compara╚¢ie cu orice sistem de aspect web din trecut, schimb─â complet modul ├«n
+care proiect─âm interfe╚¢ele utilizator. CSS a fost ├«ntotdeauna folosit pentru a aranja paginile noastre web, dar niciodat─â
+nu a f─âcut o treab─â prea bun─â. Ini╚¢ial, am folosit tabele, apoi elemente cu flotare, pozi╚¢ionare ╚Öi blocuri inline, dar
+toate aceste metode au fost ├«n esen╚¢─â trucuri ╚Öi au omis o mul╚¢ime de func╚¢ionalit─â╚¢i importante (de exemplu, centrarea
+vertical─â).
+Propriet─â╚¢i ale grilei CSS
+display: Define╚Öte elementul ca un container de gril─â ╚Öi stabile╚Öte un nou
+context de formatare a grilei pentru con╚¢inutul s─âu.
+Valori:
+ΓÇó grid - Genereaz─â o gril─â la nivel de bloc
+ΓÇó inline-grid - Genereaz─â o gril─â la nivel de linie
+.container { display: grid | inline-grid; }
+Elementul asupra c─âruia display: grid se aplic─â. Este p─ârintele direct al tuturor elementelor grilei. ├Än acest exemplu
+container este containerul grilei.
+<div class="container"> <div class="item item-1"> </div> <div class="item
+item-2"> </div> <div class="item item-3"> </div> </div>
+Linie de grid: Liniile de demarca╚¢ie care alc─âtuiesc structura grid-ului. Acestea pot fi fie verticale (ΓÇ₧linii de grid pentru
+coloaneΓÇ¥), fie orizontale (ΓÇ₧linii de grid pentru r├ónduriΓÇ¥) ╚Öi se afl─â de o parte ╚Öi de alta a unui r├ónd sau a unei coloane. Aici,
+linia galben─â este un exemplu de linie de grid pentru coloane.
+Pist─â de grid: Spa╚¢iul dintre dou─â linii de grid adiacente. Le pute╚¢i considera coloane sau r├ónduri ale grid-ului. Iat─â pista
+grid-ului dintre liniile grid-ului de pe al doilea ╚Öi al treilea r├ónd.
+Zona grid-ului: Spa╚¢iul total ├«nconjurat de patru linii de grid. O zon─â de grid poate fi compus─â din orice num─âr de celule
+de grid. Iat─â zona de grid dintre liniile de gril─â 1 ╚Öi 3 pentru r├ónduri ╚Öi liniile de grid 1 ╚Öi 3 pentru coloane.
+Celul─â de grid: Spa╚¢iul dintre dou─â linii de grid de tip r├ónd adiacent ╚Öi dou─â linii de grid de tip coloan─â
+adiacente. Este o singur─â ΓÇ₧unitateΓÇ¥ a grid-ului. Iat─â celula grid=ului dintre liniile de grid de tip r├ónd 1 ╚Öi
+2 ╚Öi liniile de grid de tip coloan─â 2 ╚Öi 3.
+Grid-template-columns: Define╚Öte coloanele ╚Öi r├óndurile grid-ului cu o list─â de valori separate prin spa╚¢ii. Valorile
+reprezint─â dimensiunea pistei, iar spa╚¢iul dintre ele reprezint─â linia grid-ului.
+Valori:
+ΓÇó <track-size> Poate fi o lungime, un procent sau o frac╚¢iune din spa╚¢iul liber din grid folosind unitatea fr .
+ΓÇó <line-name> Un nume arbitrar la alegere.
+.container { grid-template-columns: ... ...; /* e.g. 1fr 1fr minmax(10px, 1fr) 3fr repeat(5, 1fr) 50px auto 100px 1fr */
+grid-template-rows: ... ...; /* e.g. min-content 1fr min-content 100px 1fr max-content */ }
+Liniile grid-ului primesc automat numere pozitive din aceste atribuiri ( -1fiind o alternativ─â pentru ultimul r├ónd).
+.container { grid-template-columns: [first] 40px [line2] 50px
+[line3] auto [col4-start] 50px [five] 40px [end]; grid-template-
+rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-
+line]; }
+.container { grid-template-rows: [row1-start] 25% [row1-end
+row2-start] 25% [row2-end]; }
+Unitatea fr v─â permite s─â seta╚¢i dimensiunea unei piste ca o frac╚¢iune din spa╚¢iul liber al containerului grilei. De exemplu,
+aceasta va seta fiecare element la o treime din l─â╚¢imea containerului grilei:
+.container { grid-template-columns: 1fr 1fr 1fr; }
+Spa╚¢iul liber este calculat dup─â ad─âugarea oric─âror elemente neflexibile. ├Än acest exemplu, spa╚¢iul total liber disponibil
+unit─â╚¢ilor fr nu include cei 50px:
+.container { grid-template-columns: 1fr 50px 1fr 1fr; }
+O prescurtare pentru setarea grid-template-rows, grid-template-columns, ╚Öi grid-template-areas ├«ntr-o singur─â declara╚¢ie.
+Valori:
+ΓÇó None - Seteaz─â toate cele trei propriet─â╚¢i la valorile lor ini╚¢iale.
+ΓÇó <grid-template-rows> / <grid-template-columns>: Seteaz─â grid-template-columns ╚Öi grid-template-rows la valorile
+specificate, respectiv, ╚Öi seteaz─â grid-template-areas la none
+.container { grid-template: none | <grid-template-rows> / <grid-template-columns>; }
+De asemenea, accept─â o sintax─â mai complex─â, dar destul de practic─â, pentru specificarea tuturor celor trei. Iat─â un exemplu:
+.container { grid-template: [row1-start] "header header header" 25px [row1-end] [row2-start]
+"footer footer footer" 25px [row2-end] / auto 50px auto; }
+├Äntruc├ót grid-template nu reseteaz─â propriet─â╚¢ile implicite ale grilei ( grid-auto-columns, grid-auto-rows, ╚Öi grid-auto-
+flow), ceea ce este probabil ceea ce dori╚¢i s─â face╚¢i ├«n majoritatea cazurilor, este recomandat s─â utiliza╚¢i grid proprietatea ├«n
+loc de grid-template.
+grid-template-areas: Define╚Öte un ╚Öablon de gril─â prin referire la numele zonelor de gril─â specificate cu grid-area
+proprietatea. Repetarea numelui unei zone de gril─â face ca respectivul con╚¢inut s─â se ├«ntind─â pe acele celule. Punct
+semnific─â o celul─â goal─â. Sintaxa ├«n sine ofer─â o vizualizare a structurii grilei.
+Valori:
+ΓÇó <grid-area-name> Numele unei zone de gril─â specificate grid-area cu .
+ΓÇó . - Un punct semnific─â o celul─â goal─â ├«n gril─â.
+.container { grid-template-areas: "<grid-area-name> | . | none
+ΓÇó None - Nu sunt definite zone de grid. | ..." "..."; }
+Exemplu:
+.item-a { grid-area: header; } .item-b { grid-area: main; } .item-c { grid-area: sidebar; } .item-d { grid-
+area: footer; } .container { display: grid; grid-template-columns: 50px 50px 50px 50px; grid-
+template-rows: auto; grid-template-areas: "header header header header" "main main . sidebar"
+"footer footer footer footer"; }
+Aceasta va crea un grid cu patru coloane l─â╚¢ime ╚Öi trei r├ónduri ├«n─âl╚¢ime. ├Äntregul r├ónd de sus va fi compus
+din zona antetului . R├óndul din mijloc va fi compus din dou─â zone principale , o celul─â goal─â ╚Öi o zon─â de bar─â
+lateral─â . Ultimul r├ónd este ├«n ├«ntregime subsol .
+Fiecare r├ónd din declara╚¢ia ta trebuie s─â aib─â acela╚Öi num─âr de celule.
+Pute╚¢i folosi oric├óte puncte adiacente pentru a declara o singur─â celul─â goal─â. At├óta timp c├ót punctele nu au
+spa╚¢ii ├«ntre ele, acestea reprezint─â o singur─â celul─â.
+Observa╚¢i c─â nu denumi╚¢i linii cu aceast─â sintax─â, ci doar zone. C├ónd utiliza╚¢i aceast─â sintax─â, liniile de la
+ambele capete ale zonelor sunt de fapt denumite automat. Dac─â numele zonei grilei este foo , numele r├óndului
+de ├«nceput ╚Öi al coloanei de ├«nceput a zonei va fi foo -start , iar numele ultimei linii de r├ónd ╚Öi al ultimei linii
+de coloan─â va fi foo -end . Aceasta ├«nseamn─â c─â unele linii pot avea mai multe nume, cum ar fi linia din
+extrema st├óng─â din exemplul de mai sus, care va avea trei nume: header-start, main-start, ╚Öi footer-start.
+Grid: O prescurtare pentru setarea tuturor urm─âtoarelor propriet─â╚¢i ├«ntr-o singur─â declara╚¢ie: grid-template-rows, grid-
+template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, ╚Öi grid-auto-flow. Pute╚¢i specifica doar
+propriet─â╚¢ile explicite sau implicite ale grilei ├«ntr-o singur─â declara╚¢ie de gril─â.
+Valori:
+ΓÇó None - Seteaz─â toate subpropriet─â╚¢ile la valorile lor ini╚¢iale.
+ΓÇó <grid-template> - Func╚¢ioneaz─â la fel ca grid-template prescurtarea.
+ΓÇó <grid-template-rows> / [ auto-flow && dense? ] <grid-auto-columns>?: Seteaz─â grid-template-rows la
+valoarea specificat─â. Dac─â auto-flow cuv├óntul cheie se afl─â ├«n dreapta barei oblice, acesta seteaz─â grid-auto-flow la
+column. Dac─â dense cuv├óntul cheie este specificat suplimentar, algoritmul de plasare automat─â utilizeaz─â un
+algoritm de ├«mpachetare ΓÇ₧dens─âΓÇ¥. Dac─â grid-auto-columns este omis, este setat la auto.
+ΓÇó [ auto-flow && dense? ] <grid-auto-rows>? / <grid-template-columns>: Seteaz─â grid-template-columns la
+valoarea specificat─â. Dac─â auto-flow cuv├óntul cheie se afl─â la st├ónga barei oblice, acesta seteaz─â grid-auto-flow la
+row. Dac─â dense cuv├óntul cheie este specificat suplimentar, algoritmul de plasare automat─â utilizeaz─â un algoritm
+de ├«mpachetare ΓÇ₧dens─âΓÇ¥. Dac─â grid-auto-rows este omis, este setat la auto.
+Exemple:
+.container { grid: 100px 300px / 3fr 1fr; }
+Urm─âtoarele dou─â blocuri de cod sunt echivalente:
+.container { grid-template-rows: 100px 300px; grid-template-
+columns: 3fr 1fr; }
+.container { grid: auto-flow / 200px 1fr; }
+.container { grid-auto-flow: row; grid-template-columns: 200px 1fr; }
+.container { grid: auto-flow dense 100px / 1fr 2fr; }
+.container { grid-auto-flow: row dense; grid-auto-rows: 100px; grid-template-columns: 1fr 2fr; }
+.container { grid: 100px 300px / auto-flow 200px; }
+.container { grid-template-rows: 100px 300px; grid-auto-flow: column; grid-auto-columns: 200px; }
+De asemenea, accept─â o sintax─â mai complex─â, dar destul de practic─â, pentru setarea tuturor elementelor simultan.
+Specifica╚¢i grid-template-areas, grid-template-rows ╚Öi grid-template-columns, iar toate celelalte subpropriet─â╚¢i sunt
+setate la valorile lor ini╚¢iale. Ceea ce face╚¢i este s─â specifica╚¢i numele liniilor ╚Öi dimensiunile pistelor ├«n linie cu
+zonele respective ale grilei. Cel mai u╚Öor de descris este un exemplu:
+.container { grid: [row1-start] "header header header" 1fr [row1-end] [row2-start] "footer footer footer" 25px
+[row2-end] / auto 50px auto; }
+.container { grid-template-areas: "header header header" "footer footer footer"; grid-template-rows: [row1-
+start] 1fr [row1-end row2-start] 25px [row2-end]; grid-template-columns: auto 50px auto; }
+Justify-items: Aliniaz─â elementele grilei de-a lungul axei ├«n linie (r├ónd) (spre deosebire de align-items alinierea de-a
+lungul axei blocului (coloanei). Aceast─â valoare se aplic─â tuturor elementelor grilei din interiorul containerului.
+Valori:
+ΓÇó stretch(implicit): Umple ├«ntreaga l─â╚¢ime a celulei.
+ΓÇó Start: Aliniaz─â elementele astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea ini╚¢ial─â a celulei lor
+ΓÇó End: Aliniaz─â elementele astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea de cap─ât a celulei lor
+ΓÇó Center: Aliniaz─â elementele ├«n centrul celulei lor
+.container { justify-items: start | end | center | stretch; }
+Exemplu:
+.container { justify-items: end; }
+.container { justify-items: start; }
+.container { justify-items: stretch; }
+.container { justify-items: center; }
+Acest comportament poate fi setat ╚Öi pentru elemente individuale ale grilei prin intermediul justify-self propriet─â╚¢ii.
+Align-items: Aliniaz─â elementele grilei de-a lungul axei blocului (coloanei) (spre deosebire justify-items de alinierea
+de-a lungul axei ├«n linie (r├óndului)). Aceast─â valoare se aplic─â tuturor elementelor grilei din interiorul containerului.
+Valori:
+ΓÇó stretch(implicit): Umple ├«ntreaga ├«n─âl╚¢ime a celulei (aceasta este valoarea implicit─â)
+ΓÇó Start - Aliniaz─â elementele astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea ini╚¢ial─â a celulei lor
+ΓÇó End - Aliniaz─â elementele astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea de cap─ât a celulei lor
+ΓÇó Center - Aliniaz─â elementele ├«n centrul celulei lor
+ΓÇó baseline: Aliniaz─â elementele de-a lungul liniei de baz─â a textului . Exist─â modificatori pentru baselineΓÇö first
+baseline ╚Öi last baseline care vor utiliza linia de baz─â de la prima sau ultima linie ├«n cazul textului cu mai multe linii.
+.container { align-items: start | end | center | stretch; }
+Exemple:
+.container { align-items: end; }
+.container { align-items: start; }
+.container { align-items: stretch; }
+.container { align-items: center; }
+Place-items: place-items seteaz─â ambele propriet─â╚¢i align-items ╚Öi justify-items ├«ntr-o singur─â declara╚¢ie.
+Valori:
+ΓÇó <align-items> / <justify-items>: Prima valoare seteaz─â align-items, a doua valoare justify-items. Dac─â a doua valoare
+este omis─â, prima valoare este atribuit─â ambelor propriet─â╚¢i.
+Acest lucru poate fi foarte util pentru o centrare multidirec╚¢ional─â super rapid─â:
+.center { display: grid; place-items: center; }
+Justify-content: Uneori, dimensiunea total─â a grilei poate fi mai mic─â dec├ót dimensiunea containerului s─âu de gril─â. Acest
+lucru se poate ├«nt├ómpla dac─â toate elementele grilei sunt dimensionate cu unit─â╚¢i neflexibile, cum ar fi px. ├Än acest caz, pute╚¢i
+seta alinierea grilei ├«n cadrul containerului grilei. Aceast─â proprietate aliniaz─â grila de-a lungul axei ├«n linie (r├ónd) (spre
+deosebire de align-content aceasta, care aliniaz─â grila de-a lungul axei blocului (coloanei)).
+Valori:
+ΓÇó Start - Aliniaz─â grila astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea ini╚¢ial─â a containerului grilei.
+ΓÇó End - Aliniaz─â grila astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea de cap─ât a containerului grilei.
+ΓÇó Center - Aliniaz─â grila ├«n centrul containerului grilei.
+ΓÇó Stretch - Redimensioneaz─â elementele grilei pentru a permite grilei s─â umple ├«ntreaga l─â╚¢ime a containerului grilei.
+ΓÇó space-around - Plaseaz─â un spa╚¢iu egal ├«ntre fiecare element al grilei, cu spa╚¢ii egale cu jum─âtate de dimensiune la
+capetele ├«ndep─ârtate.
+ΓÇó space-between - Plaseaz─â un spa╚¢iu egal ├«ntre fiecare element al grilei, f─âr─â spa╚¢iu la capetele ├«ndep─ârtate.
+ΓÇó space-evenly - Plaseaz─â o cantitate uniform─â de spa╚¢iu ├«ntre fiecare element al grilei, inclusiv capetele ├«ndep─ârtate.
+.container { justify-content: start | end | center | stretch | space-around | space-between | space-evenly; }
+Exemple:
+.container { justify-content: start; } .container { justify-content:
+space-around; }
+.container { justify-content: end; } .container { justify-content:
+space-between; }
+.container { justify-content: center; } .container { justify-content: space-evenly; }
+.container { justify-content: stretch; }
+Align-content: Uneori, dimensiunea total─â a grilei poate fi mai mic─â dec├ót dimensiunea containerului s─âu de gril─â.
+Acest lucru se poate ├«nt├ómpla dac─â toate elementele grilei sunt dimensionate cu unit─â╚¢i neflexibile, cum ar fi px. ├Än
+acest caz, pute╚¢i seta alinierea grilei ├«n cadrul containerului grilei. Aceast─â proprietate aliniaz─â grila de-a lungul axei
+blocului (coloanei) (spre deosebire de justify-content aceasta, care aliniaz─â grila de-a lungul axei ├«n linie (r├óndului) ).
+Valori:
+ΓÇó Start Aliniaz─â grila astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea ini╚¢ial─â a containerului grilei.
+ΓÇó End Aliniaz─â grila astfel ├«nc├ót s─â fie la acela╚Öi nivel cu marginea de cap─ât a containerului grilei.
+ΓÇó Center Aliniaz─â grila ├«n centrul containerului grilei.
+ΓÇó Stretch Redimensioneaz─â elementele grilei pentru a permite grilei s─â umple ├«ntreaga ├«n─âl╚¢ime a containerului grilei.
+ΓÇó space-around Plaseaz─â un spa╚¢iu egal ├«ntre fiecare element al grilei, cu spa╚¢ii egale cu jum─âtate de dimensiune la
+capetele ├«ndep─ârtate.
+ΓÇó space-between Plaseaz─â un spa╚¢iu egal ├«ntre fiecare element al grilei, f─âr─â spa╚¢iu la capetele ├«ndep─ârtate.
+ΓÇó space-evenly Plaseaz─â o cantitate uniform─â de spa╚¢iu ├«ntre fiecare element al grilei, inclusiv capetele ├«ndep─ârtate.
+.container { align-content: start | end | center | stretch |
+space-around | space-between | space-evenly; }
+Exemple: .container { align-content: space-around; }
+.container { align-content: start; } .container { align-content: center; }
+.container { align-content: space-between; }
+.container { align-content: end; } .container { align-content: stretch; }
+.container { align-content: space-evenly; }
+Grid-auto-*: Specific─â dimensiunea oric─âror piste de gril─â generate automat (cunoscute ╚Öi ca piste de gril─â implicite ).
+Pistele implicite sunt create atunci c├ónd exist─â mai multe elemente de gril─â dec├ót celule ├«n gril─â sau c├ónd un element de
+gril─â este plasat ├«n afara grilei explicite.
+Valori: <track-size> Poate fi o lungime, un procent sau o frac╚¢iune din spa╚¢iul liber din gril─â (folosind unitatea fr ).
+.container { grid-auto-columns: <track-size> ...; grid-auto-rows: <track-size> ...; }
+Pentru a ilustra cum se creeaz─â grilele implicite:
+.container { grid-template-columns: 60px 60px; grid-template-rows: 90px 90px; }
+Aceasta creeaz─â o gril─â de 2├ù2.
+Dar acum imagineaz─â-╚¢i c─â folose╚Öti grid-column ╚Öi grid-row pentru a pozi╚¢iona elementele grilei astfel:
+.item-a { grid-column: 1 / 2; grid-row: 2 / 3; }
+.item-b { grid-column: 5 / 6; grid-row: 2 / 3; }
+Am spus .item-b s─â ├«ncepem la linia 5 a coloanei ╚Öi s─â termin─âm
+la linia 6 a coloanei, dar nu am definit niciodat─â o linie 5 sau
+6. Deoarece am f─âcut referire la linii care nu exist─â, sunt create
+piste implicite cu l─â╚¢imi de 0 pentru a umple golurile.
+Putem folosi grid-auto-columns ╚Öi grid-auto-rows pentru a specifica l─â╚¢imile acestor piste implicite:
+.container { grid-auto-columns: 60px; }
+Grid-auto-flow: Dac─â ave╚¢i elemente din gril─â pe care nu le plasa╚¢i explicit pe gril─â, algoritmul de plasare automat─â
+se activeaz─â pentru a plasa automat elementele. Aceast─â proprietate controleaz─â modul ├«n care func╚¢ioneaz─â
+algoritmul de plasare automat─â.
+Valori:
+ΓÇó Row Indic─â algoritmului de plasare automat─â s─â completeze fiecare r├ónd pe r├ónd, ad─âug├ónd r├ónduri noi dup─â cum
+este necesar (implicit)
+ΓÇó column: Indic─â algoritmului de plasare automat─â s─â completeze fiecare coloan─â pe r├ónd, ad─âug├ónd coloane noi
+dup─â cum este necesar
+ΓÇó Dense Indic─â algoritmului de plasare automat─â s─â ├«ncerce s─â umple golurile mai devreme ├«n gril─â dac─â elemente
+mai mici apar mai t├órziu
+.container { grid-auto-flow: row | column | row dense | column dense; }
+Re╚¢ine╚¢i c─â dense modific─â doar ordinea vizual─â a elementelor ╚Öi ar putea face ca acestea s─â apar─â ├«n afara ordinii, ceea
+ce este d─âun─âtor pentru accesibilitate.
+<section class="container">
+Exemple:
+<div class="item-a">item-ai</div>
+<div class="item-b">item-b</div>
+<div class="item-c">item-c</div>
+<div class="item-d">item-d</div>
+<div class="item-e">item-e</div>
+</section>
+Defini╚¢i o gril─â cu cinci coloane ╚Öi dou─â r├ónduri ╚Öi seta╚¢i grid-auto-flow la row (care este ╚Öi valoarea implicit─â):
+.container { display: grid; grid-template-columns: 60px 60px 60px 60px 60px;
+grid-template-rows: 30px 30px; grid-auto-flow: row; }
+C├ónd plasa╚¢i elementele pe gril─â, specifica╚¢i locuri doar pentru dou─â dintre ele:
+.item-a { grid-column: 1; grid-row: 1 / 3; } .item-e { grid-column: 5; grid-row: 1 / 3; }
+Deoarece am setat grid-auto-flow la row, grila noastr─â va ar─âta astfel. Observa╚¢i cum cele trei elemente pe care nu le-
+am plasat ( element-b , element-c ╚Öi element-d ) se desf─â╚Öoar─â pe r├óndurile disponibile:
+Dac─â ├«n schimb set─âm grid-auto-flow, column item -b , item-c ╚Öi item-d se desf─â╚Öoar─â ├«n coloane:
+.container { display: grid; grid-template-columns: 60px 60px 60px 60px
+60px; grid-template-rows: 30px 30px; grid-auto-flow: column; }
+Proprietatea gap controleaz─â ├«n mod explicit spa╚¢iul dintre elementele flexibile. Aplic─â acea spa╚¢iere doar ├«ntre
+elementele care nu se afl─â pe marginile exterioare. Este o prescurtare care combin─â propriet─â╚¢ile row-gap ╚Öi column-
+gap.
+.container { display: flex;
+/* ... */
+gap: 10px; gap: 10px 20px;
+/* row-gap column gap */
+row-gap: 10px; column-gap: 20px; }
+Func╚¢ii de dimensionare
+ΓÇó fit-content() Folose╚Öte spa╚¢iul disponibil, dar niciodat─â mai pu╚¢in dec├ót min-content╚Öi niciodat─â mai mult dec├ót max-
+content.
+ΓÇó max() Func╚¢ia CSS max() preia dou─â sau mai multe argumente separate prin virgul─â ale valorilor de spa╚¢iere, le evalueaz─â
+╚Öi returneaz─â cea mai mare valoare din grup .
+ΓÇó min() Func╚¢ia CSS min() preia dou─â sau mai multe argumente separate prin virgul─â ale valorilor de spa╚¢iere, le evalueaz─â
+╚Öi returneaz─â cea mai mic─â valoare din grup .
+ΓÇó minmax() Func╚¢ia CSS este utilizat─â exclusiv cu CSS Grid pentru a defini un interval deminmax() dimensiuni pentru
+pistele grilei (adic─â r├óndurile ╚Öi coloanele grilei). V─â permite s─â specifica╚¢i dou─â argumente - o dimensiune minim─â ╚Öi o
+dimensiune maxim─â pentru o pist─â - permi╚¢├ónd pistei grilei s─â creasc─â ╚Öi s─â se mic╚Öoreze ├«n acel interval, ├«n func╚¢ie de
+spa╚¢iul disponibil.
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+/* easier: */ grid-template-columns: repeat(8, 1fr);
+ΓÇó repeat()ΓÇï Func╚¢ia repeat() poate economisi o parte din timp tast├ónd:
+/* especially when: */ grid-template-columns:
+repeat(8, minmax(10px, 1fr));
+Dar repeat() poate deveni ╚Öi mai sofisticat atunci c├ónd este combinat cu cuvinte cheie:
+ΓÇóauto-fill ├Äncadra╚¢i c├ót mai multe coloane posibile pe un r├ónd, chiar dac─â acestea sunt goale.
+ΓÇóauto-fit:├Äncadra╚¢i ├«n spa╚¢iu orice coloane exist─â. Prefera╚¢i extinderea coloanelor pentru a umple spa╚¢iul, ├«n loc de
+coloane goale.
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+Subgrid este o caracteristic─â extrem de util─â a grilelor care permite elementelor grilei s─â aib─â propria gril─â ce
+mo╚Ötene╚Öte liniile de gril─â de la grila p─ârinte.
+.parent-grid { display: grid; grid-template-columns: repeat(9, 1fr); }
+.grid-item { grid-column: 2 / 7; display: grid; grid-template-columns: subgrid; }
+.child-of-grid-item { /* gets to participate on parent grid! */ grid-column: 3 / 6; }
+De asemenea, este util s─â ╚Ötii despre display: contents;. Aceasta nu este acela╚Öi lucru cu subgrid, dar poate fi un
+instrument util uneori ├«ntr-un mod similar.
+<div class="grid-parent">
+<div class="grid-item"></div>
+<div class="grid-item"></div>
+<ul style="display: contents;">
+<!-- These grid-items get to participate on the same grid!-->
+<li class="grid-item"></li>
+<li class="grid-item"></li>
+</ul> </div>
+Bootstrap Grid
+Sistemul de grid Bootstrap ofer─â o modalitate u╚Öoar─â ╚Öi puternic─â de a crea layout-uri responsive de toate formele ╚Öi
+dimensiunile. Este construit cu flexbox cu abordare mobile-first. De asemenea, este complet responsive ╚Öi folose╚Öte un
+sistem cu doisprezece coloane (12 coloane disponibile pe r├ónd) ╚Öi ╚Öase niveluri responsive implicite.
+Pute╚¢i utiliza clasele de grid predefinite din Bootstrap pentru a crea rapid machete pentru diferite tipuri de dispozitive,
+cum ar fi telefoane mobile, tablete, laptopuri, desktop-uri ╚Öi a╚Öa mai departe.
+De exemplu, pute╚¢i utiliza clasele .col-* pentru a crea coloane de gril─â pentru dispozitive foarte mici, cum ar fi
+telefoanele mobile ├«n modul portret ╚Öi .col-sm-* clase pentru telefoane mobile ├«n modul peisaj.
+├Än mod similar, pute╚¢i utiliza .col-md-* clasele pentru a crea coloane de gril─â pentru dispozitive cu ecran mediu, cum
+ar fi tabletele, clase .col-lg-* pentru dispozitive precum laptopuri mici, .col-xl-* clase pentru laptopuri ╚Öi desktopuri ╚Öi
+.col-xxl-*clase pentru ecrane mari de desktopuri.
+Caracteristicile cheie ale sistemului Bootstrap
+Aplicarea oric─ârei .col-sm-* clase unui element va avea un efect nu numai asupra dispozitivelor mici, ci ╚Öi asupra
+dispozitivelor medii, mari ╚Öi foarte mari (l─â╚¢ime a viewport-ului ΓëÑ768px), dac─â nu este prezent─â o clas─â .col-md-*,
+.col-lg-*, .col-xl-*, sau .col-xxl-*.
+├Än mod similar, .col-md-* clasa va avea efect nu doar asupra dispozitivelor medii, ci ╚Öi asupra dispozitivelor mari ╚Öi
+extra-mari, dac─â nu este prezent─â o clas─â .col-lg-*, .col-xl-*, sau ..col-xxl-*
+Acum se pune ├«ntrebarea cum se creeaz─â r├ónduri ╚Öi coloane folosind acest sistem de gril─â responsiv cu 12 coloane.
+R─âspunsul este destul de simplu, mai ├«nt├ói crea╚¢i un container care ac╚¢ioneaz─â ca un wrapper pentru r├ónduri ╚Öi coloane
+folosind orice clase de containere , cum ar fi .container, dup─â aceea crea╚¢i r├ónduri ├«n interiorul containerului folosind
+.rowclasa , iar pentru a crea coloane ├«n interiorul oric─ârui r├ónd pute╚¢i utiliza clasele .col-*, .col-sm-*, .col-md-*, .col-
+lg-*, .col-xl-*╚Öi .col-xxl-*.
+Coloanele sunt zone de con╚¢inut propriu-zise unde vom plasa con╚¢inutul nostru. ├Än sec╚¢iunile urm─âtoare vom pune
+toate aceste lucruri ├«n practic─â ╚Öi vom vedea cum func╚¢ioneaz─â de fapt:
+Crearea machetelor cu dou─â coloane
+Urm─âtorul exemplu v─â va ar─âta cum s─â crea╚¢i machete cu dou─â coloane pentru dispozitive medii, mari ╚Öi foarte mari,
+cum ar fi tablete, laptopuri ╚Öi desktopuri etc. Cu toate acestea, pe telefoanele mobile (l─â╚¢imea ecranului mai mic─â de
+768px), coloanele vor deveni automat orizontale (2 r├ónduri, 1 coloan─â).
+<div class="container">
+<!--Row with two equal columns-->
+<div class="row"> <div class="col-md-6">Column
+left</div>
+<div class="col-md-6">Column right</div>
+</div>
+<!--Row with two columns divided in 1:2 ratio-->
+<div class="row"> <div class="col-md-4">Column
+left</div>
+<div class="col-md-8">Column right</div> </div>
+<!--Row with two columns divided in 1:3 ratio-->
+<div class="row"> <div class="col-md-3">Column
+left</div>
+<div class="col-md-9">Column right</div>
+</div> </div>
+Not─â: ├Äntr-un layout de tip gril─â, con╚¢inutul trebuie plasat ├«n interiorul coloanelor ( .col ╚Öi .col-*) ╚Öi numai coloanele
+pot fi copiii direc╚¢i ai r├óndurilor (.row). De asemenea, r├óndurile ar trebui plasate ├«ntr-un container (fix sau fluid) pentru
+o umplutur─â ╚Öi o aliniere corecte.
+L─â╚¢imile coloanelor grilei sunt setate ├«n procente, deci sunt ├«ntotdeauna fluide ╚Öi dimensionate ├«n raport cu elementul
+p─ârinte. ├Än plus, fiecare coloan─â are o zon─â de umplere orizontal─â (numit─â spatiu) pentru controlul spa╚¢iului dintre
+coloanele individuale.
+├Äntruc├ót sistemul de Bootstrap se bazeaz─â pe 12 coloane, pentru a p─âstra coloanele pe o singur─â linie (adic─â una l├óng─â
+alta), suma numerelor coloanelor grilei dintr-un singur r├ónd nu ar trebui s─â fie mai mare de 12.
+Crearea unor machete cu trei coloane
+├Än mod similar, pute╚¢i crea alte machete bazate pe principiul de mai sus. De exemplu, urm─âtorul exemplu va crea de
+obicei machete cu trei coloane pentru ecranele laptopurilor ╚Öi desktopurilor. Func╚¢ioneaz─â ╚Öi pe tablete ├«n modul
+peisaj dac─â rezolu╚¢ia ecranului este mai mare sau egal─â cu 992 pixeli (de exemplu, Apple iPad). Cu toate acestea, ├«n
+modul portret, coloanele grilei vor fi orizontale ca de obicei.
+<div class="container"> <!--Row with three equal columns-->
+<div class="row"> <div class="col-lg-4">Column left</div> <div
+class="col-lg-4">Column middle</div>
+<div class="col-lg-4">Column right</div> </div> <!--Row with
+three columns divided in 1:4:1 ratio-->
+<div class="row"> <div class="col-lg-2">Column left</div>
+<div class="col-lg-8">Column middle</div>
+<div class="col-lg-2">Column right</div>
+</div> <!--Row with three columns divided unevenly-->
+<div class="row"> <div class="col-lg-3">Column left</div>
+<div class="col-lg-7">Column middle</div>
+<div class="col-lg-2">Column right</div> </div> </div>
+Coloane cu aspect automat Bootstrap
+De asemenea, pute╚¢i crea coloane cu l─â╚¢ime egal─â pentru toate dispozitivele (x-small, small, medium, large, x-large ╚Öi
+xx-large) utiliz├ónd pur ╚Öi simplu clasa .col, f─âr─â a specifica niciun num─âr de coloan─â.
+S─â ├«ncerc─âm urm─âtorul exemplu pentru a ├«n╚¢elege cum func╚¢ioneaz─â exact:
+<div class="container"> <!--Row with two equal columns-->
+<div class="row"> <div class="col">Column one</div>
+<div class="col">Column two</div>
+</div> <!--Row with three equal columns-->
+<div class="row"> <div class="col">Column one</div>
+<div class="col">Column two</div>
+<div class="col">Column three</div> </div> </div>
+├Än plus, pute╚¢i seta l─â╚¢imea unei coloane ╚Öi pute╚¢i permite coloanelor surori s─â se redimensioneze automat ├«n mod egal
+├«n jurul acesteia. Pute╚¢i utiliza clasele de gril─â predefinite sau l─â╚¢imile ├«n linie.
+Comportamentul de ├«ncadrare a coloanelor
+Acum vom crea machete mai flexibile care modific─â orientarea coloanelor ├«n func╚¢ie de dimensiunea ferestrei
+de vizualizare. Urm─âtorul exemplu va crea o machet─â cu trei coloane pe dispozitive mari, cum ar fi laptopuri ╚Öi
+desktopuri, precum ╚Öi pe tablete (de exemplu, Apple iPad) ├«n modul peisaj, dar pe dispozitive medii, cum ar fi
+tabletele, ├«n modul portret (768px Γëñ l─â╚¢imea ecranului < 992px), se va transforma ├«ntr-o machet─â cu dou─â
+coloane, ├«n care a treia coloan─â se mut─â ├«n partea de jos a primelor dou─â coloane.
+<div class="container"> <div class="row"> <div class="col-md-4
+col-lg-3">Column one</div>
+<div class="col-md-8 col-lg-6">Column two</div>
+<div class="col-md-12 col-lg-3">Column three</div> </div> </div>
+Dup─â cum pute╚¢i vedea ├«n exemplul de mai sus, suma numerelor coloanelor grilei medii (adic─â col-md-*) este
+3 + 9 + 12 = 24 > 12, prin urmare, al treilea <div>element din clasa .col-md-12care adaug─â coloanele
+suplimentare dincolo de maximum 12 coloane ├«ntr-o .row, este ├«nf─â╚Öurat pe o linie nou─â ca o unitate contigu─â pe
+dispozitivele cu ecran mediu.
+Crearea de machete cu mai multe coloane cu Bootstrap
+Cu noul sistem de grid flexbox Bootstrap mobile first, pute╚¢i controla cu u╚Öurin╚¢─â modul ├«n care aspectul site-ului dvs.
+web va fi afi╚Öat pe diferite tipuri de dispozitive cu dimensiuni diferite ale ecranului sau ferestrei de vizualizare, cum ar
+fi telefoane mobile, tablete, desktop-uri etc. S─â lu─âm ├«n considerare urm─âtoarea ilustra╚¢ie.
+├Än ilustra╚¢ia de mai sus exist─â un total de 12 casete de con╚¢inut pe toate dispozitivele, dar amplasarea acestora variaz─â
+├«n func╚¢ie de dimensiunea ecranului dispozitivului. La fel ca pe dispozitivele mobile, aspectul este redat ca o gril─â pe o
+coloan─â, cu o coloan─â ╚Öi 12 r├ónduri plasate una deasupra celeilalte, ├«n timp ce pe tablete este redat ca o gril─â pe dou─â
+coloane, cu 2 coloane ╚Öi 6 r├ónduri.
+├Än plus, pe dispozitivele cu ecran mare, cum ar fi laptopurile ╚Öi desktopurile, acesta este redat ca o gril─â cu trei coloane,
+care are 3 coloane ╚Öi 4 r├ónduri, iar ├«n final, pe dispozitivele cu ecran foarte mare, cum ar fi desktopurile mari, acesta
+este redat ca o gril─â cu patru coloane, care are 4 coloane ╚Öi 3 r├ónduri.
+Acum ├«ntrebarea este cum putem crea astfel de layout-uri responsive folosind acest sistem de gril─â Bootstrap flexbox.
+S─â ├«ncepem cu dispozitivul ╚¢int─â principal. S─â presupunem c─â dispozitivul nostru ╚¢int─â principal este un laptop sau un
+desktop normal. Deoarece layout-ul laptopului nostru are 3 coloane ╚Öi 4 r├ónduri, adic─â un layout de gril─â de 3x4,
+codul HTML pentru crearea unei astfel de structuri de gril─â ar ar─âta cam a╚Öa.
+<div class="container-lg"> <div class="row">
+<div class="col-xl-4"><p>Box 1</p></div> <div
+class="col-xl-4"><p>Box 2</p></div> <div
+class="col-xl-4"><p>Box 3</p></div> <div
+class="col-xl-4"><p>Box 4</p></div> <div
+class="col-xl-4"><p>Box 5</p></div> <div
+class="col-xl-4"><p>Box 6</p></div> <div
+class="col-xl-4"><p>Box 7</p></div> <div
+class="col-xl-4"><p>Box 8</p></div> <div
+class="col-xl-4"><p>Box 9</p></div> <div
+class="col-xl-4"><p>Box 10</p></div> <div
+class="col-xl-4"><p>Box 11</p></div> <div
+class="col-xl-4"><p>Box 12</p></div> </div>
+</div>
+Clasa .container-lg face containerul 100% l─â╚¢ime dac─â l─â╚¢imea viewport-ului este mai mic─â de 992px, utiliz├ónd astfel
+├«ntreaga l─â╚¢ime disponibil─â pe ecrane mai mici.
+Dac─â vede╚¢i rezultatul exemplului de mai sus pe un dispozitiv mare, cum ar fi un laptop sau un desktop, care are o
+l─â╚¢ime a ecranului sau a viewport-ului mai mare sau egal─â cu 1200px, dar mai mic─â de 1400px, ve╚¢i constata c─â
+aspectul are 4 r├ónduri, unde fiecare r├ónd are 3 coloane egale, rezult├ónd un aspect de gril─â de 3x4.
+Acum este momentul s─â personaliz─âm layout-ul nostru pentru alte dispozitive. S─â ├«ncepem prin a-l personaliza pentru
+dispozitive medii, cum ar fi tabletele (768px Γëñ l─â╚¢ime viewport < 1200px). Deoarece pe tablet─â layout-ul nostru este
+redat ca grile 2x6 (adic─â 2 coloane ╚Öi 6 r├ónduri), putem ad─âuga clasa .col-md-6pe fiecare coloan─â.
+<div class="container-lg"> <div class="row">
+<div class="col-xl-4 col-md-6"><p>Box 1</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 2</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 3</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 4</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 5</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 6</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 7</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 8</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 9</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 10</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 11</p></div>
+<div class="col-xl-4 col-md-6"><p>Box 12</p></div> </div> </div>
+Pentru comoditate, alege╚¢i dispozitivul ╚¢int─â principal ╚Öi crea╚¢i mai ├«nt├ói un layout pentru acel dispozitiv, dup─â care
+ad─âuga╚¢i clase pentru a-l face responsiv pentru alte dispozitive.
+Imbricarea coloanelor grid-ului
+Coloanele grid Bootstrap sunt, de asemenea, imbricabile, ceea ce ├«nseamn─â c─â pute╚¢i plasa r├ónduri ╚Öi coloane ├«n
+interiorul unei coloane existente. Cu toate acestea, formula pentru plasarea coloanelor va fi aceea╚Öi, adic─â suma
+numerelor coloanelor trebuie s─â fie egal─â cu 12 sau mai mic─â ├«ntr-un singur r├ónd.
+<div class="container"> <div class="row"> <div class="col-sm-8">Column left</div>
+<div class="col-sm-4"> <!--Column right with nested rows and columns-->
+<div class="row"> <div class="col-12"></div> </div>
+<div class="row"> <div class="col-6"></div>
+<div class="col-6"></div> </div> </div> </div> </div>
+Crearea coloanelor cu l─â╚¢ime variabil─â
+Pute╚¢i utiliza col-{breakpoint}-auto clasele pentru a dimensiona coloanele ├«n func╚¢ie de l─â╚¢imea natural─â a
+con╚¢inutului lor. ├Äncerca╚¢i urm─âtorul exemplu pentru a vedea cum func╚¢ioneaz─â:
+<div class="container"> <div class="row justify-content-md-center">
+<div class="col-md-3">Column left</div>
+<div class="col-md-auto">Variable width column</div>
+<div class="col-md-3">Column right</div> </div>
+<div class="row"> <div class="col">Column left</div>
+<div class="col-auto">Variable width column</div>
+<div class="col">Column right</div> </div> </div>
+Alinierea coloanelor grilei
+Pute╚¢i utiliza utilitarele de aliniere flexbox pentru a alinia vertical ╚Öi orizontal coloanele grilei ├«n interiorul unui
+container. ├Äncerca╚¢i urm─âtoarele exemple pentru a ├«n╚¢elege cum func╚¢ioneaz─â:
+Alinierea vertical─â a coloanelor grilei
+Pute╚¢i utiliza clasele .align-items-start, .align-items-center, ╚Öi .align-items-end pentru a alinia coloanele grilei
+vertical ├«n partea de sus, mijloc ╚Öi respectiv jos a unui container.
+<div class="container"> <div class="row align-items-start"> <div
+class="col">Column one</div>
+<div class="col">Column two</div>
+<div class="col">Column three</div> </div>
+<div class="row align-items-center"> <div class="col">Column
+one</div> <div class="col">Column two</div>
+<div class="col">Column three</div> </div>
+<div class="row align-items-end"> <div class="col">Column one</div>
+<div class="col">Column two</div>
+<div class="col">Column three</div> </div> </div>
+Coloanele individuale din interiorul unui r├ónd pot fi aliniate ╚Öi pe vertical─â. Iat─â un exemplu:
+<div class="container"> <div class="row"> <div class="col align-self-
+start">Column one</div>
+<div class="col align-self-center">Column two</div>
+<div class="col align-self-end">Column three</div> </div> </div>
+Alinierea orizontal─â a coloanelor grilei
+Pute╚¢i utiliza clasele .justify-content-start, .justify-content-center, ╚Öi .justify-content-end pentru a alinia coloanele
+grilei pe orizontal─â la st├ónga, centrul ╚Öi respectiv dreapta unui container. S─â vedem cum func╚¢ioneaz─â urm─âtorul
+exemplu:
+<div class="container"> <div class="row justify-content-start">
+<div class="col-4">Column one</div>
+<div class="col-4">Column two</div> </div>
+<div class="row justify-content-center"> <div class="col-
+4">Column one</div>
+<div class="col-4">Column two</div> </div>
+<div class="row justify-content-end"> <div class="col-4">Column
+one</div>
+<div class="col-4">Column two</div> </div> </div>
+Alternativ, pute╚¢i utiliza clasa .justify-content-around pentru a distribui uniform coloanele grilei cu spa╚¢ii de jum─âtate
+de dimensiune la fiecare cap─ât, ├«n timp ce pute╚¢i utiliza clasa .justify-content-between pentru a distribui uniform
+coloanele grilei, unde prima coloan─â este plasat─â la ├«nceput ╚Öi ultima coloan─â la sf├ór╚Öit. ├Äncerca╚¢i urm─âtorul exemplu
+pentru a vedea cum func╚¢ioneaz─â de fapt:
+<div class="container"> <div class="row justify-content-
+around"> <div class="col-4">Column one</div>
+<div class="col-4">Column two</div> </div>
+<div class="row justify-content-between"> <div class="col-
+4">Column one</div>
+<div class="col-4">Column two</div> </div> </div>
+Reordonarea coloanelor grilei
+Pute╚¢i chiar schimba ordinea vizual─â a coloanelor grilei f─âr─â a le schimba ordinea ├«n markup-ul propriu-zis. Folosi╚¢i
+clasa .order-last pentru a ordona coloana la ultimul loc, ├«n timp ce folosi╚¢i clasa .order-first pentru a ordona coloana
+la primul loc. S─â vedem un exemplu:
+<div class="container"> <div class="row"> <div class="col
+order-last">First, but ordered at last</div>
+<div class="col">Second, but unordered</div>
+<div class="col order-first">Last, but ordered at first</div>
+</div> </div>
+De asemenea, pute╚¢i utiliza .order-* clasele pentru a ordona coloanele grilei ├«n func╚¢ie de numerele de ordine.
+Coloana grilei cu num─âr de ordine mai mare vine dup─â coloana grilei cu num─âr de ordine mai mic sau coloana grilei
+f─âr─â clase de ordine. Include suport pentru clasele de la 1 la 12 pe toate cele cinci niveluri ale grilei.
+<div class="container"> <div class="row"> <div class="col order-4">First,
+but ordered at last</div>
+<div class="col">Second, but ordered at first</div>
+<div class="col order-1">Last, but ordered at second</div> </div> </div>
+Decalarea coloanelor grid-ului
+De asemenea, pute╚¢i muta coloanele grid-ului la dreapta ├«n scopul alinierii utiliz├ónd clasele de offset al coloanelor,
+cum ar fi .offset-sm-*, .offset-md-*, .offset-lg-* ╚Öi a╚Öa mai departe.
+Aceste clase compenseaz─â coloanele prin simpla cre╚Ötere a marginii lor st├óngi cu num─ârul specificat de coloane. De
+exemplu, clasa .offset-md-4on column .col-md-8o mut─â la dreapta cu patru coloane fa╚¢─â de pozi╚¢ia sa ini╚¢ial─â.
+├Äncerca╚¢i urm─âtorul exemplu pentru a vedea cum func╚¢ioneaz─â:
+<div class="container"> <div class="row"> <div class="col-sm-4"></div>
+<div class="col-sm-8"></div> </div>
+<div class="row"> <div class="col-sm-8 offset-sm-4"><!--Column with 4
+columns offset--></div> </div> </div>
+De asemenea, pute╚¢i decala coloanele folosind clasele utilitare margin. Aceste clase sunt utile ├«n situa╚¢iile ├«n care
+l─â╚¢imea decalajului nu este fix─â. Iat─â un exemplu:
+<div class="container"> <div class="row"> <div class="col-md-4"></div>
+<div class="col-md-4 ms-auto"><!--Offset this column to right--></div> </div>
+<div class="row"> <div class="col-auto me-auto"></div>
+<div class="col-auto"><!--Move this column away from previous column--></div>
+</div> </div>
+Crearea coloanelor compacte
+Pute╚¢i elimina marginile implicite dintre coloane pentru a crea machete compacte ad─âug├ónd clasa .g-0on .row. Aceast─â
+clas─â elimin─â marginile negative de pe r├ónd ╚Öi padding-ul orizontal din toate coloanele secundare imediate. Iat─â un
+exemplu:
+<div class="row g-0"> <div class="col-4">Column one</div>
+<div class="col-4">Column two</div>
+<div class="col-4">Column three</div> </div>
+Separarea coloanelor la o linie nou─â
+De asemenea, pute╚¢i crea coloane cu l─â╚¢ime egal─â care se ├«ntind pe mai multe r├ónduri inser├ónd o clas─â <div>`with` .w-100
+acolo unde dori╚¢i ca coloanele s─â se ├«ntrerup─â la o linie nou─â. ├Än plus, pute╚¢i face ca aceste ├«ntreruperi s─â fie responsive
+combin├ónd clasa .w-100 cu clase utilitare de afi╚Öare responsive.
+<div class="container"> <!-- Break columns on all devices -->
+<div class="row"> <div class="col">.col</div>
+<div class="col">.col</div> <div class="w-100"></div>
+<div class="col">.col</div>
+<div class="col">.col</div> </div>
+<!-- Break columns on all devices except extra large devices -->
+<div class="row"> <div class="col">.col</div>
+<div class="col">.col</div>
+<div class="w-100 d-xl-none"></div>
+<div class="col">.col</div>
+<div class="col">.col</div> </div> </div>
+
