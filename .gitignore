@@ -7,9 +7,9 @@ opencode.json
 node_modules/
 *.log
 
+# Jira credentials
+.jira/config.json
+
 # OS
 Thumbs.db
 .DS_Store
-
-# PowerShell hooks
-*.ps1

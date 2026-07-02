@@ -50,9 +50,35 @@ confidence: established | supported | speculative
 - **/arscontexta:extrage [sursă]** — Extrage concepte dintr-un PDF din inbox/
 - **/arscontexta:conectează** — Găsește conexiuni între concepte
 - **/arscontexta:verifică [concept]** — Verifică calitatea unei notițe
+- **/arscontexta:qmd:refresh** — Re-indexează colecția qmd după ingest (qmd update + embed)
 - **/arscontexta:next** — Ce să faci mai departe
 - **/arscontexta:remember** — Capturează un obstacol/observație
 - **/arscontexta:stats** — Statistici vault
+
+## Semantic Search (QMD)
+
+Indexul semantic `qmd` permite căutare locală 100% offline (BM25 + vector + rerank).
+
+- **Colecție activă:** `concepts` → `concepts/**/*.md`
+- **Index fizic:** `.qmd/index.sqlite`
+- **După ingest:** rulează `/arscontexta:qmd:refresh` sau `qmd update && qmd embed`
+- **MCP activ:** `.mcp.json` → 6 tool-uri auto-aprobate (search, vsearch, deep_search, get, multi_get, status)
+
+## Jira Integration
+
+Skill-ul `jira` permite interacțiunea cu Jira API direct din CLI.
+
+| Comandă | Descriere |
+|---------|-----------|
+| `/arscontexta:jira:setup` | Configurează conexiunea Jira (base URL, email, API token) |
+| `/arscontexta:jira:list` | Listează issue-uri dintr-un proiect |
+| `/arscontexta:jira:create` | Creează issue nou în Jira |
+| `/arscontexta:jira:link [ISSUE-123]` | Leagă notița curentă de issue Jira |
+| `/arscontexta:jira:get [ISSUE-123]` | Vezi detalii issue |
+| `/arscontexta:jira:search [JQL]` | Caută issue-uri după JQL |
+| `/arscontexta:jira:sync` | Compară issue-uri Jira cu task-urile din `ops/queue/` |
+
+Credentialele se salvează în `.jira/config.json` (ignorat de git).
 
 ## Condition-Based Maintenance
 
