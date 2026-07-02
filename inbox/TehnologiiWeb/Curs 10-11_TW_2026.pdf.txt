@@ -1,0 +1,122 @@
+--- PAGE 1 ---
+Tehnologii WEB
+Curs 10-11
+PHP
+-continuare-
+: 6gyjd1x
+Cod Teams
+Anul III, semestrul II
+2026
+
+--- PAGE 2 ---
+PHP - continuare
+Ce este PHP și de ce este relevant?
+PHP (PHP: Hypertext Preprocessor) este un limbaj de programare interpretat, creat special pentru dezvoltarea aplicațiilor web
+dinamice. Spre deosebire de JavaScript, care rulează în browser (client-side), PHP rulează exclusiv pe server (server-side). Aceasta
+înseamnă că utilizatorul final nu vede niciodată codul PHP — primește doar rezultatul final, adică HTML pur.
+Relevanța PHP în contextul modern vine din mai multe direcții. În primul rând, maturitatea ecosistemului: PHP are peste 30 de
+ani de dezvoltare activă, ceea ce înseamnă biblioteci stabile, documentație excelentă și o comunitate vastă. În al doilea rând, integrarea
+nativă cu serverele web Apache și Nginx face configurarea trivială. În al treilea rând, PHP este limbajul pe care se bazează cele mai mari
+platforme de gestionare a conținutului: WordPress (43% din toate site-urile web), Drupal, Joomla, Magento și Prestashop.
+Din perspectiva arhitecturii web, PHP se plasează în stratul de mijloc (middleware) al modelului clasic de trei niveluri:
+1.prezentare (HTML/CSS/JS în browser),
+2. logică (PHP pe server) și
+3.date (MySQL în baza de date).
+Această separare permite scalabilitate și mentenanță.
+
+--- PAGE 3 ---
+Modelul de execuție PHP – Cum funcționează?
+Pentru a înțelege PHP în profunzime, este esențial să înțelegem ciclul complet al unui request web. Atunci când un utilizator
+accesează o pagină PHP, se desfășoară o secvență precisă de pași:
+1. Browserul trimite un HTTP Request către server (ex: GET /index.php?id=5 HTTP/1.1).
+2. Serverul web (Apache/Nginx) recepționează request-ul și identifică că extensia fișierului este .php.
+3. Serverul web transmite fișierul PHP interpretorului PHP (prin modulul mod_php sau FastCGI/PHP-FPM).
+4. Interpretorul PHP parsează și execută codul PHP. În această etapă se fac accesele la baza de date, se citesc fișiere, se
+calculează valori.
+5. PHP generează un răspuns — de obicei HTML, dar poate fi și JSON, XML, PDF, imagini etc.
+6. Serverul web trimite răspunsul înapoi browserului ca HTTP Response.
+7. Browserul interpretează HTML-ul și afișează pagina utilizatorului.
+PHP este stateless (fără stare) prin natură: la fiecare request, un script PHP nou pornește, se execută și se
+termină. Nu există memorie între două request-uri consecutive — aceasta este tocmai problema pe care cookie-urile și
+sesiunile o rezolvă.
+
+--- PAGE 4 ---
+Tipuri de date în PHP – Sistem dinamic de tipuri
+PHP folosește tipizare dinamică, ceea ce înseamnă că tipul unei variabile nu se declară explicit - el este determinat
+automat din valoarea atribuită. Aceasta este o diferență fundamentală față de Java sau C++, unde tipul trebuie declarat.
+PHP suportă opt tipuri primitive, organizate în trei categorii.
+Tipurile scalare sunt:
+• boolean (true/false),
+• integer (numere întregi, ex: 42, -7),
+• float (numere reale, ex: 3.14),
+• string (șiruri de caractere, ex: 'hello’).
+Tipurile compuse sunt: array (colecții ordonate sau asociative) și object (instanțe de clase).
+Tipurile speciale sunt: null (absența valorii) și resource (referință la o resursă externă, ex: o conexiune la BD).
+Un aspect important al PHP este conversia automată de tipuri (type coercion sau type juggling). PHP convertește
+automat între tipuri când contextul o cere. De exemplu, șirul '5' adunat cu întreg-ul 3 produce întreg-ul 8. Aceasta poate fi o
+sursă de comportamente neașteptate, motiv pentru care în PHP 8 a fost întărit sistemul de tipuri și au fost introduse warning-
+uri mai stricte.
+
+--- PAGE 5 ---
+PHP și Aplicații Dinamice
+PHP (Hypertext Preprocessor) este un limbaj de scripting server-side, destinat dezvoltării web. Codul PHP este executat pe
+server, iar browserul primește doar HTML pur. PHP este integrat direct în fișiere HTML prin tag-urile <?php ... ?>.
+Prelucrarea Șirurilor
+Un șir de caractere în PHP este, la nivel fundamental, o secvență de bytes. PHP nu are un tip dedicat pentru caractere individuale (cum
+are Java char) — un caracter este pur și simplu un șir de lungime 1. Această simplitate are implicații practice importante: PHP tratează
+șirurile ca date binare prin implicite, ceea ce înseamnă că funcțiile standard lucrează byte cu byte, nu caracter cu caracter.
+Această distincție devine crucială când lucrăm cu caractere ne-ASCII - de exemplu, caracterele românești (ă, â, î, ș, ț) sau emoji. Funcția
+strlen() va returna numărul de bytes, nu numărul de caractere: pentru șirul 'ăpă', strlen() returnează 6 (fiecare caracter UTF-8 românesc
+ocupă 2 bytes), nu 3. Pentru operații corecte cu Unicode, PHP oferă extensia mbstring (multi-byte string), cu funcții prefixate mb_:
+mb_strlen(), mb_strtoupper(), mb_substr() etc.
+PHP suportă mai multe modalități de a defini șiruri, fiecare cu comportament diferit. Ghilimelele simple ('sir') creează un șir literal -
+nicio variabilă nu este interpolată, niciun escape sequence nu este procesat (cu excepția \\ și \’).
+Ghilimelele duble ("sir") permit interpolarea variabilelor ($var devine valoarea sa) și procesează escape sequences (\n, \t, \r, \0 etc.).
+Heredoc (<<<EOT ... EOT;) funcționează ca ghilimelele duble dar permite șiruri multi-linie fără escaping. Nowdoc (<<<'EOT' ... EOT;)
+funcționează ca ghilimelele simple pentru șiruri multi-linie.
+
+--- PAGE 6 ---
+Exemplu 1 –Funcții de bază pentru șiruri
+<?php Tipuri de șiruri și mbstring
+// strlen() –lungimea unui șir
+<?php
+$sir = "Tehnologii Web";
+// Comportamentul diferit al tipurilor de șiruri:
+echo strlen($sir); // Rezultat: 14
+$var = 'lume';
+// strtoupper() / strtolower() –conversie majuscule/minuscule
+// Single quotes –literal, fără interpolare
+echo strtoupper($sir); // TEHNOLOGII WEB
+echo 'Salut $var'; // Afișează: Salut $var (literal)
+echo strtolower($sir); // tehnologii web
+echo 'Tab:\t test'; // Afișează: Tab:\t test (escape ignorat)
+// str_replace() –înlocuire subșir
+// Double quotes –interpolare + escape
+echo str_replace("Web", "PHP", $sir); // Tehnologii PHP
+echo "Salut $var"; // Afișează: Salut lume
+echo "Tab:\t test"; // Afișează: Tab: test
+// substr() –extragere subșir
+echo substr($sir, 0, 11); // Tehnologii
+// Heredoc –ideal pentru blocuri HTML în PHP
+echo substr($sir, -3); // Web
+$titlu = 'Pagina mea';
+$continut = <<<EOT
+// strpos() –poziția primei apariții
+<h1>$titlu</h1>
+echo strpos($sir, "Web"); // 12 (indexare de la 0) <p>Aceasta este o pagina dinamica.</p>
+EOT;
+// trim() –elimină spații de la capete // $continut conține HTML-ul complet, cu $titlu interpolat
+$spatii = " hello ";
+echo trim($spatii); // "hello" // mbstring pentru UTF-8 corect
+?> $cuvant = 'ăpă';
+echo strlen($cuvant); // 6 (bytes!)
+Rezultat / Output
+echo mb_strlen($cuvant); // 3 (caractere) –CORECT
+14 echo mb_strtoupper($cuvant); // ĂPĂ –CORECT
+TEHNOLOGII WEB ?>
+tehnologii web
+Tehnologii PHP
+Tehnologii
+Web
+12
+hello

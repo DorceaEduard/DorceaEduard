@@ -1,0 +1,87 @@
+--- PAGE 1 ---
+REȚELE DE
+Curs 1
+Noțiuni
+CALCULATOARE
+introductive
+
+--- PAGE 2 ---
+STRUCTURA CURSULUI
+ 14 cursuri x 2 ore
+ Notare:
+▪ 20 % - test în săptămâna ~ 6
+▪ 20 % - test în săptămâna ~ 12
+▪ 50 % - examen final (tip grilă – susținut pe platforma de e-learning)
+▪ 10 % - activitate în timpul semestrului la orele de curs/ laborator
+▪ Minim 5 la jumătate din teste de la orele de curs
+▪ Bonus: maxim 5% - câte 1% pentru fiecare test la care punctajul este între primii 5 din
+clasamentul testului
+
+--- PAGE 3 ---
+CUPRINS
+ Noțiuni introductive
+▪ Rețea, dispozitive de rețea, protocoale de comunicații
+ Stivele OSI și TCP/IP
+ Concepte de bază
+▪ Segmentare
+▪ Încapsulare
+▪ Multiplexare
+ Adresarea IP
+▪ Adrese IPv4
+▪ Adresa de rețea, masca de rețea, adresa de broadcast
+
+--- PAGE 4 ---
+NOȚIUNI INTRODUCTIVE
+ Rețea:
+▪ Un set de dispozitive de rețea care pot comunica între ele
+ Topologie
+▪ Fizică vs. logică
+ Dispozitive de rețea
+ Medii de comunicații
+ Protocoale de comunicații
+
+--- PAGE 5 ---
+CLASIFICARE REȚELE DE COMUNICAȚII
+ În funcție de aria geografică cuprinsă
+▪ BAN – Body Area Network
+▪ PAN – Personal Area Network
+▪ LAN – Local Area Network
+▪ CAN – Campus Area Network
+▪ MAN – Metropolitan Area Network
+▪ WAN – Wide Area Network
+
+--- PAGE 6 ---
+BAN – BODY AREA NETWORK
+ Rețea de dispozitive aflată în imediata apropiere a utilizatorului (de ex.
+dispozitive purtabile –engl. Wearable sau implantabile)
+▪ Aflate în curs de dezvoltare odată cu dezvoltarea rețelelor de senzori wireless –engl.
+Wireless Sensor Networks –WSNs
+ Componență:
+▪ Senzori medicali, dispozitive media, etc.
+▪ Transmițător
+▪ utilizează protocoale de tip Ultra-Low-Power
+▪ implementează politici de securitate eficiente
+ Aplicabilitate
+▪ Domeniul medical, sporturi, monitorizarea vârstnicilor/ persoanelor cu risc de cădere:
+▪ Monitorizarea semnalelor vitale ale unei persoane: pacient, atlet de performanță
+▪ Detectarea căderilor
+ PAN – Personal Area Network
+▪ Poate cuprinde un BAN
+▪ Face legătura între BAN și LAN
+
+--- PAGE 7 ---
+LAN – LOCAL AREA NETWORK
+ Arie geografică restrânsă
+▪ O locuință, un birou, un departament, etc.
+ Management comun al dispozitivelor de rețea
+ Politici de acces și de securitate uniforme
+ Dispozitivele folosesc aceeași adresă IP de rețea
+
+--- PAGE 8 ---
+CAN – CAMPUS AREA NET WORK
+ Arie geografică de diferite dimensiuni
+ Cuprinde mai multe LAN-uri
+ Topologii de referință ce pot fi aplicate pentru organizarea
+rețelelor din diferite organizații de diferite mărimi
+▪ Vor fi detaliate într-un curs ulterior, după asimilarea noțiunilor
+generale legate de adresare IP, dispozitive de rețea

@@ -1,0 +1,128 @@
+--- PAGE 1 ---
+Tehnologii WEB
+Automatică și informatică aplicată
+: 6gyjd1x
+Cod Teams
+Anul III, semestrul II
+2026
+
+--- PAGE 2 ---
+STRUCTURA CURSULUI:
+Informații despre
+➢ 2 ore curs/săptămână
+structura cursului
+titular curs: Ș.l. univ. dr. ing. Mihaela VASLUIANU
+și evaluare:
+➢ 2 ore laborator/ săptămână
+titular laborator: asist. univ. drd. Ing. Mihaela Gabriela BOICU
+FORMA DE EXAMINARE:
+➢ Examen final – 40% - platforma Moodle
+➢Evaluare pe parcursul semestrului a activităţii de laborator – 60%
+➢Proiect final (fară notă distinctă)– 30%
+➢Punctaj teste practice/ teme – 30%
+Participarea la activitățile didactice asistate trebuie să
+respecte cerințele minimale specificate în ROAD!
+
+--- PAGE 3 ---
+Curs 1
+Introducere în World Wide Web (WWW)
+• Definitia si scurt istoric al serviciului World Wide Web
+• Identificatori uniformi de resurse (URI)
+• Locator de resursa uniforma (URL)
+• Arhitectura, protocolul HTTP
+• Instrumente pentru dezvoltarea aplicatiilor WEB
+
+--- PAGE 4 ---
+Introducere în World Wide Web (WWW)
+Termenul Internet provine din combinarea artificială și parțială a două cuvinte englezești:
+interconnected = interconectat și network = rețea.
+„Internet” – reprezintă o rețea globală unificată de calculatoare și alte dispozitive, fiecare
+având o adresă unică, interconectate între ele prin respectarea protocoalelor de comunicare
+„Transmission Control Protocol” și „Internet Protocol”, cunoscute împreună sub denumirea de stiva
+TCP/IP.
+Termenul „Internet” nu trebuie confundat cu serviciul World Wide Web (WWW), deoarece
+acesta reprezintă doar unul dintre numeroasele servicii care funcționează pe infrastructura Internetului.
+Internet-ul ofera utilizatorilor o serie de servicii, dintre care amintim:
+• posta electronica (e-mail)
+• transferul de fisiere (FTP – File Transfer Protocol)
+• conectarea la distanta (telnet)
+• World Wide Web-ul (cunoscut si sub numele de WWW sau WEB)
+
+--- PAGE 5 ---
+Serviciul World Wide Web - sistem de distribuție locală sau globală a
+informațiilor hypermedia.
+World Wide Web (WWW) reprezintă un serviciu distribuit de informații care
+funcționează peste infrastructura Internetului și permite accesarea, interconectarea și
+vizualizarea documentelor hipertext și a resurselor multimedia prin intermediul
+browserelor web.
+WWW utilizează:
+• HTTP/HTTPS – protocolul de transfer al informației;
+• HTML – limbajul de structurare a paginilor;
+• URL/URI – sistemul de adresare a resurselor;
+• browserul web – interfața de acces pentru utilizator.
+
+--- PAGE 6 ---
+Scurt istoric al World Wide Web
+Perioada pre-Web (anii ’60–’80) 1989 – Nașterea Web-ului
+• Apar primele rețele de calculatoare • Tim Berners-Lee, cercetător la CERN
+(ARPANET – 1969) (Elveția), propune un sistem de gestionare a
+documentelor științifice prin hipertext
+• Se dezvoltă protocoalele TCP/IP
+• Ideea: documente legate între ele prin
+• Existau servicii precum FTP, Telnet, e-mail,
+linkuri
+dar nu existau interfețe grafice sau hipertext
+• Aceasta este considerată data oficială a
+• Problema principală: informațiile erau greu
+conceperii WWW.
+de găsit și utilizat.
+1990 – Primele implementări 1991 – Web-ul devine public
+• Berners-Lee dezvoltă:
+CERN publică tehnologia pentru comunitatea
+• primul server web (httpd) științifică → începe adoptarea globală.
+• primul browser (WorldWideWeb/Nexus)
+• limbajul HTML
+• protocolul HTTP
+• Se creează prima pagină web din istorie.
+
+--- PAGE 7 ---
+Scurt istoric al World Wide Web
+1994–2000 – Web 1.0
+1993 – Explozia popularității
+Caracteristici:
+• Apare browserul Mosaic (grafic, ușor de
+folosit) • pagini statice
+• Web-ul devine accesibil publicului larg • conținut informativ
+• Numărul site-urilor crește exponențial • puțină interactivitate
+• Acesta este momentul în care Web-ul Exemple: site-uri tip broșură, HTML simplu
+devine mainstream.
+2010–prezent – Web modern (Web 3.0 / Semantic Web)
+2000–2010 – Web 2.0 Caracteristici:
+• aplicații cloud
+Caracteristici: • AI și personalizare
+• conținut generat de utilizatori • API-uri REST
+• aplicații SPA (React, Angular, Vue)
+• aplicații web dinamice
+• PWA
+• interactivitate ridicată
+• IoT
+• tehnologii blockchain (în unele contexte)
+Apar: rețele sociale, bloguri, YouTube, AJAX,
+JavaScript avansat
+Web-ul devine platformă completă de aplicații, nu doar
+documente.
+
+--- PAGE 8 ---
+Practic, Web-ul permite:
+• navigarea prin hyperlink-uri
+• afișarea de text, imagini, video, audio
+• execuția aplicațiilor web interactive
+Este important de subliniat că WWW ≠ Internet.
+Internetul este infrastructura fizică (rețele, routere, cabluri), iar Web-ul este un serviciu care
+rulează peste Internet, la fel ca e-mailul sau FTP.
+Web-ul reprezinta un spatiu informational alcatuit din resurse situate in locatii cunoscute sub
+numele de noduri, utilizate prin intermediul unui sistem hypertext, folosind modul de identificare
+denumit URI (Uniform Resource Identifier).
+Este bazat pe modelul client/server si pe hipertext. Resursele sunt identificate prin adresa lor –
+identificator uniform de resurse (URI).
+URI = URL + URN
