@@ -1,0 +1,29 @@
+{
+  "name": "proiectedi",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000F\u0000r\u0000o\u0000n\u0000t\u0000e\u0000n\u0000d\u0000 \u0000P\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DorceaEduard/frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DorceaEduard/frontend/issues"
+  },
+  "homepage": "https://github.com/DorceaEduard/frontend#readme",
+  "dependencies": {
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "express": "^5.2.1",
+    "pdf-parse": "^2.4.5"
+  }
+}
