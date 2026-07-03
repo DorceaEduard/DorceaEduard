@@ -1,0 +1,25 @@
+---
+descriere: Hub principal — navigare pe materii Anul III
+type: hartă-materie
+source: "vault"
+confidence: established
+materii: []
+---
+
+# SecondBrain — Automatică și Informatică Aplicată
+
+Bun venit în vault-ul de curs. Aici vei găsi concepte, definiții, teoreme și algoritmi din materiile de Anul III, extrase din PDF-uri și prezentări.
+
+## Hărți materie
+
+<!-- Adaugă aici linkuri către hărțile pe materii pe măsură ce le creezi -->
+- [[Sisteme de Reglare Automată]]
+- [[Microcontrolere]]
+- [[Inteligență Artificială]]
+- [[Sisteme Automate]]
+
+## Statistici utile
+
+- `/arscontexta:stats` — metrici vault
+- `/arscontexta:health quick` — diagnostic rapid
+- `/arscontexta:next` — ce urmează de făcut

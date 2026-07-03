@@ -1,0 +1,15 @@
+# Ars Contexta Vault
+_bmad/
+_bmad-output/
+.opencode/
+.agents/
+opencode.json
+node_modules/
+*.log
+
+# Jira credentials
+.jira/config.json
+
+# OS
+Thumbs.db
+.DS_Store
