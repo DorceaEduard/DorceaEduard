@@ -78,9 +78,9 @@ ARS Contexta (pipeline + `qmd` local) · Obsidian · opencode (agent în termina
 - [ ] Agent Q&A: pui o întrebare → primești răspuns sintetizat **cu citare sursă** — demonstrat live local
 - [ ] Eval rulat: agentul răspunde corect la întrebările gold ȘI spune „nu știu" pe cele adversariale
 - [ ] Repo curat: README cu setup + cum rulezi + failure modes; `_bmad/`, `.agents/`, `.opencode/` în `.gitignore`; commit-uri de la TOȚI 3
-- [ ] CV pe GitHub Pages (început de S6)
+- [ ] CV pe GitHub Pages (07.07)
 
-## Pasul imediat AZI (S4)
+## Pasul imediat AZI (30.06)
 1. **Curățați repo-ul:** adăugați `_bmad/`, `.agents/`, `.opencode/`, `_bmad-output/` (output-ul, nu doc-urile pe care le vreți păstrate) în `.gitignore`. Acum tot BMAD-ul e urcat în git = poluare (regula: ce ține de tooling-ul tău local NU se urcă în repo).
 2. **Tutorele vă setează ARS Contexta + Obsidian** în ședință (EPIC 1).
 3. **Alegeți cursul** pe care faceți ingest (EPIC 2) și spargeți EPIC 1+2 în tichete Jira.
