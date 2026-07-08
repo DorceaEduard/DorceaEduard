@@ -1,8 +1,8 @@
-﻿# ðŸ‘‹ Hi there! I'm **Dorcea Heia Eduard Damian**
+﻿‹ Hi there! I'm **Dorcea Heia Eduard Damian**
 
-ðŸŽ“ **Student at UTCB** | *Facultatea de AutomaticÄƒ È™i Calculatoare â€“ Anul III, AIA* 
-ðŸ¤– **AI/ML & Knowledge Engineering Enthusiast** | Building **SecondBrain** â€“ A Local RAG Assistant for Students
-ðŸ”§ Open for **internships** in AI/ML, Python Development, or Knowledge Systems
+ð **Student at UTCB** | *Facultatea de AutomaticÄƒ È™i Calculatoare â€“ Anul III, AIA* 
+ð **AI/ML & Knowledge Engineering Enthusiast** | Building **SecondBrain** â€“ A Local RAG Assistant for Students
+ð Open for **internships** in AI/ML, Python Development, or Knowledge Systems
 
 ---
 
