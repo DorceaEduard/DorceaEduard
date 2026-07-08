@@ -6,46 +6,12 @@
 
 ---
 
-## /** Proiectul curent: RAGAssistant */
-
-Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a ajuta studentii sa isi organizeze si sa interogheze materialele de curs
-
-### /** Functionalitati principale */
-
-- **Ingereaza 25+ PDF-uri** (Tehnologii Web, Retelistica, Automatizarea Cladirilor)
-- **Raspunde la intrebari in romana** ("Ce este modelul OSI?") cu citarea sursei (curs, materie)
-- **Ollama + mistral:7b** pentru sinteza 100% privata (fara cloud)
-- **Script PowerShell/Python** (`/ask`) pentru interogare instantanee
-- **Optimizat GPU redus** (NVIDIA GTX 1650, 4GB VRAM)
-
-### /** Capturi de ecran */
-
-![RAGAssistant Interfață](Screenshot%20(474).png)
-![Răspuns cu citări](Screenshot%20(475).png)
-
-### /** Incearca-l */
-
-```powershell
-# Pune o intrebare in romana
-./ask "Ce este Flexbox?"
-```
-
----
-
-## /** Tech Stack */
-
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white)
-![PowerShell](https://img.shields.io/badge/-PowerShell-5391FE?style=flat-square&logo=PowerShell&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=Git&logoColor=white)
-![Ollama](https://img.shields.io/badge/-Ollama-000000?style=flat-square&logo=ollama&logoColor=white)
-![qmd](https://img.shields.io/badge/-qmd-2D3748?style=flat-square&logo=Markdown&logoColor=white)
-
-/* RAG | LLM Local | Semantic Search | Knowledge Engineering */
+## /** RAGAssistant - construiesc acum */
+Un asistent RAG local pentru studenti. Inghite PDF-uri de curs, indexeaza cu qmd, raspunde cu Ollama. Python + PowerShell + Git. [Vezi repo-ul](https://github.com/DorceaEduard/ProiectEdi)
 
 ---
 
 ## /** Contact */
-
 **Email**: [eduarddorcea@gmail.com](mailto:eduarddorcea@gmail.com)
 **LinkedIn**: [Conecteaza-te cu mine](https://linkedin.com/in/dorcea-eduard)
 **GitHub**: [github.com/DorceaEduard](https://github.com/DorceaEduard)
@@ -55,8 +21,7 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 ---
 
 ## /** Vezi proiectele mele **/
-
-**[RAGAssistant RAG Assistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
+**[RAGAssistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
 **[Vault Ars Contexta](https://github.com/DorceaEduard/ProiectEdi)** - 89+ notite conceptuale din 3 materii universitare
 
 ---
