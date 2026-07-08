@@ -18,6 +18,11 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 - **Script PowerShell/Python** (`/ask`) pentru interogare instantanee
 - **Optimizat GPU redus** (NVIDIA GTX 1650, 4GB VRAM)
 
+### /** Ce am lucrat */
+
+- **Pipeline de ingestie PDF** — procesează și parsează automat materialele de curs în chunk-uri de text pregătite pentru indexare
+- **Sistem de notițe** — extrage și structurează automat notițe din PDF-uri, creând un vault de cunoștințe interconectat
+
 ### /** Capturi de ecran */
 
 ![RAGAssistant Interfață](Screenshot%20(474).png)
