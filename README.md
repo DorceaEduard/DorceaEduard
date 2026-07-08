@@ -1,6 +1,6 @@
 ## Salut! Sunt **Dorcea Heia Eduard Damian**
 
-/* Student la UTCB */ | **Facultatea de Automatica si Calculatoare - Anul III, AIA**
+/* Student la UTCB */ | **Facultatea de Hidrotehnica UTCB - Anul III, AIA(Automatica si informatica aplicata)**
 /* AI/ML & Knowledge Engineering */ | **RAGAssistant** - Asistent RAG local pentru studenti
 /* Caut internship */ in AI/ML, Python Development sau Knowledge Systems
 
