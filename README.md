@@ -52,7 +52,7 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 ## /** Contact */
 
 **Email**: [eduarddorcea@gmail.com](mailto:eduarddorcea@gmail.com)
-**LinkedIn**: [Conecteaza-te cu mine](https://linkedin.com/in/dorcea-eduard)
+**LinkedIn**: [Conecteaza-te cu mine](https://www.linkedin.com/in/dorcea-heia-eduard-damian-781506333/)
 **GitHub**: [github.com/DorceaEduard](https://github.com/DorceaEduard)
 
 > **Deschis la colaborari!** Scrie-mi pentru proiecte, internship-uri sau discutii despre AI/ML.
