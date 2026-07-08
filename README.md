@@ -1,50 +1,51 @@
-﻿‹ Hi there! I'm **Dorcea Heia Eduard Damian**
+## Salut! Sunt **Dorcea Heia Eduard Damian**
 
-ð **Student at UTCB** | *Facultatea de AutomaticÄƒ È™i Calculatoare â€“ Anul III, AIA* 
-ð **AI/ML & Knowledge Engineering Enthusiast** | Building **SecondBrain** â€“ A Local RAG Assistant for Students
-ð Open for **internships** in AI/ML, Python Development, or Knowledge Systems
+/* Student la UTCB */ | **Facultatea de Automatica si Calculatoare - Anul III, AIA**
+/* AI/ML & Knowledge Engineering */ | **SecondBrain** - Asistent RAG local pentru studenti
+/* Caut internship */ in AI/ML, Python Development sau Knowledge Systems
 
 ---
 
-## ðŸš€ **Current Project: SecondBrain**
-A **local RAG (Retrieval-Augmented Generation)** system built to help students organize and query university course materials offline.
+## /** Proiectul curent: SecondBrain */
+Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a ajuta studentii sa isi organizeze si sa interogheze materialele de curs
 
-### âœ¨ **Key Features**
-- **ðŸ“š Ingests 25+ university PDFs** (Tehnologii Web, RetelisticÄƒ, Automatizarea ClÄƒdirilor)
-- **ðŸ’¬ Answers questions in Romanian** (e.g., *"Ce este modelul OSI?"*) with precise citations
-- **ðŸ§  Uses Ollama + mistral:7b** for high-quality synthesis (100% private, no cloud dependency)
-- **âš¡ PowerShell/Python pipeline** (`/ask` command for instant queries)
-- **ðŸ–¥ï¸ Optimized for limited GPU** (GTX 1650, 4GB VRAM)
+### /** Functionalitati principale */
+- **Ingereaza 25+ PDF-uri** (Tehnologii Web, Retelistica, Automatizarea Cladirilor)
+- **Raspunde la intrebari in romana** ("Ce este modelul OSI?") cu citarea sursei (curs, materie)
+- **Ollama + mistral:7b** pentru sinteza 100% privata (fara cloud)
+- **Script PowerShell/Python** (`/ask`) pentru interogare instantanee
+- **Optimizat GPU redus** (NVIDIA GTX 1650, 4GB VRAM)
 
-### ðŸ”— **Try It**
+### /** Incearca-l */
 ```powershell
-# Ask a question in Romanian
-./ask "ExplicÄƒ diferenÈ›a dintre TCP È™i UDP"
+# Pune o intrebare in romana
+./ask "Ce este Flexbox?"
 ```
 
 ---
 
-## ðŸ› ï¸ **Tech Stack**
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white) 
-![PowerShell](https://img.shields.io/badge/-PowerShell-5391FE?style=flat-square&logo=PowerShell&logoColor=white) 
-![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=Git&logoColor=white) 
-![Ollama](https://img.shields.io/badge/-Ollama-000000?style=flat-square&logo=ollama&logoColor=white) 
+## /** Tech Stack */
+![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=Python&logoColor=white)
+![PowerShell](https://img.shields.io/badge/-PowerShell-5391FE?style=flat-square&logo=PowerShell&logoColor=white)
+![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=Git&logoColor=white)
+![Ollama](https://img.shields.io/badge/-Ollama-000000?style=flat-square&logo=ollama&logoColor=white)
 ![qmd](https://img.shields.io/badge/-qmd-2D3748?style=flat-square&logo=Markdown&logoColor=white)
-*Knowledge Engineering | Semantic Search | RAG | LLM Local*
+/* RAG | LLM Local | Semantic Search | Knowledge Engineering */
 
 ---
 
-## ðŸ“¬ **Contact**
-ðŸ“§ **Email**: [eduarddorcea@gmail.com](mailto:eduarddorcea@gmail.com)
-ðŸ”— **LinkedIn**: [Connect with me](https://linkedin.com/in/dorcea-eduard) *(Link-ul va fi adÄƒugat dupÄƒ ce creezi profilul)
-ðŸ’» **GitHub**: [github.com/DorceaEduard](https://github.com/DorceaEduard)
+## /** Contact */
+**Email**: [eduarddorcea@gmail.com](mailto:eduarddorcea@gmail.com)
+**LinkedIn**: [Conecteaza-te cu mine](https://linkedin.com/in/dorcea-eduard)
+**GitHub**: [github.com/DorceaEduard](https://github.com/DorceaEduard)
 
-> ðŸ’¡ **Open to collaborations!** Message me for projects, internships, or just to talk about AI/ML.
+> **Deschis la colaborari!** Scrie-mi pentru proiecte, internship-uri sau discutii despre AI/ML.
 
 ---
 
-ðŸ‘€ **View my work**:
-ðŸ”¹ [SecondBrain RAG Assistant (Repo)](#) *(Link la repo-ul proiectului dupÄƒ ce Ã®l creezi)*
-ðŸ”¹ [LinkedIn Profile](#) *(Link la profilul finalizat)*
+## /** Vezi proiectele mele **/
+**[SecondBrain RAG Assistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
+**[Vault Ars Contexta](https://github.com/DorceaEduard/ProiectEdi)** - 89+ notite conceptuale din 3 materii universitare
 
-*This profile is generated with â¤ï¸ from my 2026 summer internship.*
+---
+*Profil generat in 2026 din practica de vara. Cod si documentatie disponibila.*
