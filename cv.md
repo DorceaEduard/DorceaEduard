@@ -1,6 +1,6 @@
 # Dorcea Heia Eduard Damian
 
-Automatică & Calculatoare, UTCB (anul III)
+Automatică & Informatică Aplicată, UTCB (anul III)
 eduarddorcea@gmail.com · 0764 958 970
 GitHub: [github.com/DorceaEduard](https://github.com/DorceaEduard) · LinkedIn: [linkedin.com/in/dorcea-heia-eduard-damian](https://www.linkedin.com/in/dorcea-heia-eduard-damian-781506333/)
 
@@ -43,4 +43,4 @@ Tools: Git, Vercel, Microsoft Power Platform (PowerApps, Power Automate, Power B
 
 ## Educație
 
-Automatică & Calculatoare, UTCB — Anul III (2024-2027)
+Automatică & Informatică Aplicată, UTCB — Anul III (2024-2027)
