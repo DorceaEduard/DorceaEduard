@@ -9,7 +9,6 @@
 ## /** Proiectul curent: RAGAssistant */
 
 Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a ajuta studentii sa isi organizeze si sa interogheze materialele de curs
-proiect-edi.vercel.app
 
 ### /** Functionalitati principale */
 
