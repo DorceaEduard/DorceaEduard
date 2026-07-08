@@ -1,12 +1,12 @@
 ## Salut! Sunt **Dorcea Heia Eduard Damian**
 
 /* Student la UTCB */ | **Facultatea de Automatica si Calculatoare - Anul III, AIA**
-/* AI/ML & Knowledge Engineering */ | **RAGAssistant** - Asistent RAG local pentru studenti
+/* AI/ML & Knowledge Engineering */ | **AIASSIST** - Asistent RAG local pentru studenti
 /* Caut internship */ in AI/ML, Python Development sau Knowledge Systems
 
 ---
 
-## /** Proiectul curent: RAGAssistant */
+## /** Proiectul curent: AIASSIST */
 
 Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a ajuta studentii sa isi organizeze si sa interogheze materialele de curs
 
@@ -25,8 +25,8 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 
 ### /** Capturi de ecran */
 
-![RAGAssistant Interfață](Screenshot%20(474).png)
-![Răspuns cu citări](Screenshot%20(475).png)
+![AIASSIST Interfață](Screenshot%20(476).png)
+![Răspuns cu citări](Screenshot%20(477).png)
 
 ### /** Incearca-l */
 
@@ -61,9 +61,9 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 
 ## /** Vezi proiectele mele **/
 
-**[Live Demo](https://proiect-edi.vercel.app)** — vezi RAGAssistant în acțiune
+**[Live Demo](https://proiect-edi.vercel.app)** — vezi AIASSIST în acțiune
 
-**[RAGAssistant RAG Assistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
+**[AIASSIST RAG Assistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
 **[Vault Ars Contexta](https://github.com/DorceaEduard/ProiectEdi)** - 89+ notite conceptuale din 3 materii universitare
 
 ---
