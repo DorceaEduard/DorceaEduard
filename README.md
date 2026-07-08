@@ -12,7 +12,7 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 
 ### /** Functionalitati principale */
 
-- **Ingereaza 25+ PDF-uri** (Tehnologii Web, Retelistica, Automatizarea Cladirilor)
+- **Da ingest la 25+ PDF-uri** (Tehnologii Web, Retelistica, Automatizarea Cladirilor)
 - **Raspunde la intrebari in romana** ("Ce este modelul OSI?") cu citarea sursei (curs, materie)
 - **Ollama + mistral:7b** pentru sinteza 100% privata (fara cloud)
 - **Script PowerShell/Python** (`/ask`) pentru interogare instantanee
@@ -27,7 +27,7 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 
 ```powershell
 # Pune o intrebare in romana
-./ask "Ce este Flexbox?"
+"Ce este Flexbox?"
 ```
 
 ---
