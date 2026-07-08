@@ -61,6 +61,8 @@ Un sistem **RAG (Retrieval-Augmented Generation)** local, construit pentru a aju
 
 ## /** Vezi proiectele mele **/
 
+**[Live Demo](https://proiect-edi.vercel.app)** — vezi RAGAssistant în acțiune
+
 **[RAGAssistant RAG Assistant](https://github.com/DorceaEduard/ProiectEdi)** - Sistem complet de RAG pentru studenti
 **[Vault Ars Contexta](https://github.com/DorceaEduard/ProiectEdi)** - 89+ notite conceptuale din 3 materii universitare
 
